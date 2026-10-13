@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Proyectos | Portafolio</title>
+    <!-- Fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --accent-hover: #1f6feb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        .card-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5px;
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>⚡ Laboratorio de Proyectos</h1>
+            <p>Ecosistema de aplicaciones, herramientas analíticas y desarrollos en Python y Web.</p>
+        </header>
+
+        <main class="grid">
+            <!-- Proyecto 1: Dashboard de Riesgo -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>📊 Financial Risk Dashboard</h3>
+                    <p>Panel macroeconómico en tiempo real conectado a la API de la FRED con semáforo de riesgo automatizado y soporte bilingüe (ES/EN).</p>
+                </div>
+                <!-- Sustituye "#" por tu subdominio real, ej: https://macro.tudominio.dev -->
+                <a href="#" class="btn" target="_blank">Explorar App &rarr;</a>
+            </div>
+
+            <!-- Proyecto 2: Espacio para otro proyecto (ej. Agregador de Noticias) -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🤖 News Aggregator Bot</h3>
+                    <p>Automatización en Python ejecutada mediante GitHub Actions para recopilación y envío de boletines informativos diarios.</p>
+                </div>
+                <a href="#" class="btn" target="_blank">Ver Repositorio &rarr;</a>
+            </div>
+
+            <!-- Proyecto 3: Espacio para otro proyecto (ej. Gestor de Incidentes o Reproductor) -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🛡️ Incident Tracker App</h3>
+                    <p>Aplicación web full-stack desarrollada con Node.js, Express y base de datos SQLite para el registro y control de incidencias.</p>
+                </div>
+                <a href="#" class="btn" target="_blank">Ver Proyecto &rarr;</a>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>Desarrollado con código abierto &bull; Alojado en <a href="https://pages.cloudflare.com/" target="_blank">Cloudflare Pages</a></p>
+    </footer>
+
+</body>
+</html>
