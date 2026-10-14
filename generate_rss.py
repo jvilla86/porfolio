@@ -12,20 +12,24 @@ def extract_meta(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Extraer título del tag <title> o del <h1> principal
+    # Extraer título del tag <title> o del primer separador
     title_match = re.search(r"<title>(.*?)</title>", content)
     title = title_match.group(1).split("|")[0].strip() if title_match else "Artículo sin título"
 
-    # Extraer meta description
+    # Extraer meta description de forma segura
     desc_match = re.search(r'<meta name="description" content="(.*?)">', content)
     description = desc_match.group(1) if desc_match else ""
 
-    # Extraer fecha de publicación del tag <time> (ej. datetime="2026-10-14")
-    time_match = re.search(r'<time datetime="(.*?)">', content)
+    # Extraer la fecha de forma robusta ignorando otros atributos de la etiqueta <time>
+    time_match = re.search(r'<time[^>]*datetime="([^"]+)"', content)
     if time_match:
-        date_str = time_match.group(1)
-        # Convertir a formato RFC-822 requerido por RSS
-        dt = datetime.fromisoformat(date_str)
+        date_str = time_match.group(1).strip()
+        # Limpiar posibles restos si vinieran con formato ISO con hora o solo fecha
+        try:
+            dt = datetime.fromisoformat(date_str)
+        except ValueError:
+            # Fallback si el formato es solo YYYY-MM-DD
+            dt = datetime.strptime(date_str[:10], "%Y-%m-%d")
     else:
         # Fallback a fecha de modificación del archivo
         dt = datetime.fromtimestamp(os.path.getmtime(file_path))
@@ -47,10 +51,14 @@ def extract_meta(file_path):
 def generate_rss():
     items = []
     
+    if not os.path.exists(BLOG_DIR):
+        print(f"La carpeta '{BLOG_DIR}' no existe.")
+        return
+
     # Recorrer la carpeta blog/ buscando archivos .html
     for root, _, files in os.walk(BLOG_DIR):
         for file in files:
-            if file.endswith(".html") and file != "index.html":
+            if file.endswith(".html") and file != "index.html" and file != "plantilla-articulo.html":
                 file_path = os.path.join(root, file)
                 meta = extract_meta(file_path)
                 items.append(meta)
