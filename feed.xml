@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Blog - josevilla.dev</title>
+        <title>José Villa | Blog Técnico</title>
         <link>https://josevilla.dev/blog/index.html</link>
-        <description>Artículos sobre desarrollo, ciberseguridad, cultura y sociedad, música...</description>
+        <description>Artículos sobre desarrollo, ciberseguridad, productividad, ciencia de datos y ecología práctica.</description>
         <language>es</language>
-        <lastBuildDate>Wed, 14 Oct 2026 21:20:02 +0200</lastBuildDate>
+        <lastBuildDate>Wed, 14 Oct 2026 21:23:01 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
         <item>
