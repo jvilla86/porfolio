@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas como una Base de Datos | José Villa</title>
+    <meta name="description" content="Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos, automatizar flujos de trabajo y transformar tu bóveda.">
+    <meta name="keywords" content="DataviewJS Obsidian, automatización de notas, JavaScript Obsidian, PKM, gestión del conocimiento, consultas dinámicas Obsidian">
+    <meta name="author" content="José Villa">
+    
+    <!-- Open Graph / Redes Sociales (SEO & GEO) -->
+    <meta property="og:title" content="Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas">
+    <meta property="og:description" content="Guía paso a paso para utilizar JavaScript dentro de Obsidian mediante el plugin DataviewJS y potenciar tu sistema de gestión de conocimiento personal.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://josevilla.dev/blog/dataviewjs-obsidian.html">
+    <meta property="article:published_time" content="2026-10-14T10:00:00+02:00">
+    <meta property="article:author" content="José Villa">
+    
+    <!-- Schema.org Data Structured for AI / Search Engines (GEO & SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas como una Base de Datos",
+      "description": "Tutorial técnico sobre cómo programar scripts en JavaScript utilizando el plugin DataviewJS en Obsidian para extraer metadatos y dinamizar flujos de trabajo.",
+      "author": {
+        "@type": "Person",
+        "name": "José Villa",
+        "url": "https://josevilla.dev"
+      },
+      "datePublished": "2026-10-14",
+      "inLanguage": "es",
+      "mainEntityOfPage": "https://josevilla.dev/blog/dataviewjs-obsidian.html",
+      "keywords": ["DataviewJS", "Obsidian", "JavaScript", "PKM", "Automatización"]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="blog-post-page">
+
+    <header class="site-header">
+        <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" class="logo" style="color: #38bdf8; text-decoration: none; font-weight: 600;">← Volver al Portafolio</a>
+            <nav>
+                <a href="index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; background-color: #1e293b;">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container post-container">
+        <article class="blog-post">
+            <header class="post-header">
+                <div class="post-meta" style="margin-bottom: 8px;">
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Productivity & Tools</span>
+                    <time datetime="2026-10-14" style="color: #64748b; font-size: 0.85rem; margin-left: 10px;">14 de Octubre, 2026</time>
+                </div>
+                <h1>Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas como una Base de Datos</h1>
+                <p class="lead">Cómo dar el salto desde las consultas básicas de Dataview a la potencia de JavaScript en Obsidian para extraer metadatos, generar tablas dinámicas y estructurar flujos de conocimiento complejos.</p>
+            </header>
+
+            <hr class="divider">
+
+            <section class="post-content">
+                <h2>1. Más Allá del Markdown Estático: ¿Qué es DataviewJS?</h2>
+                <p>Obsidian se ha consolidado como una de las herramientas más potentes para la gestión del conocimiento personal (PKM). Sin embargo, a medida que nuestra bóveda crece con cientos de notas de investigación, código o apuntes académicos, el texto plano estático deja de ser suficiente.</p>
+                <p>El plugin <strong>Dataview</strong> es el estándar de facto para tratar tu bóveda como una base de datos relacional mediante un lenguaje propio de consultas (DQL). Pero cuando necesitas lógica condicional compleja, manipulación avanzada de cadenas o renderizado de elementos interactivos a medida, entra en juego su hermano mayor: <strong>DataviewJS</strong>.</p>
+                <p>DataviewJS permite ejecutar bloques de código JavaScript nativo dentro de tus notas, dándote acceso directo al motor de la aplicación y a todos los metadatos de tus archivos de texto.</p>
+
+                <h2>2. Configuración y Primeros Pasos</h2>
+                <p>Para comenzar a utilizar bloques de código JavaScript interactivo en tus notas, asegúrate de cumplir con los siguientes requisitos previos:</p>
+                <ul>
+                    <li>Tener instalado el plugin <strong>Dataview</strong> desde la comunidad de Obsidian.</li>
+                    <li>Activar la opción de habilitar JavaScript en la configuración avanzada de Dataview (<em>Enable DataviewJS</em>).</li>
+                </ul>
+                <p>Un bloque básico de DataviewJS se escribe utilizando una cerca de código de tipo <code>dataviewjs</code>:</p>
+
+                <pre style="background: #0f172a; padding: 15px; border-radius: 6px; border: 1px solid #334155; color: #38bdf8; overflow-x: auto; font-family: monospace; font-size: 0.9rem;"><code>// Ejemplo básico: Listar notas modificadas recientemente
+const pages = dv.pages("#proyecto");
+dv.list(pages.sort(p => p.file.mtime, "desc").limit(5).file.link);</code></pre>
+
+                <h2>3. Resolviendo Casos de Uso Avanzados</h2>
+                
+                <div class="callout-box">
+                    <h3>A. Filtrado Dinámico de Metadatos (Frontmatter)</h3>
+                    <p>En proyectos de investigación o desarrollo, es habitual utilizar propiedades en la cabecera (YAML frontmatter) como estado, prioridad o etiquetas temáticas.</p>
+                    <p><strong>Solución con DataviewJS:</strong> Podemos recorrer programáticamente todas las páginas de una carpeta específica y filtrar objetos aplicando métodos nativos de JavaScript como <code>.filter()</code> y <code>.map()</code> con total flexibilidad.</p>
+                </div>
+
+                <div class="callout-box">
+                    <h3>B. Renderizado de Tablas Personalizadas con HTML/DOM</h3>
+                    <p>El motor por defecto de Dataview ofrece tablas estándar, pero a menudo se requiere un formato visual adaptado o insignias de estado condicionales.</p>
+                    <p><strong>Solución con DataviewJS:</strong> Gracias al objeto global <code>dv.table()</code> o incluso construyendo elementos del DOM directamente, es posible formatear celdas según valores numéricos o de fecha en tiempo de ejecución.</p>
+                </div>
+
+                <div class="callout-box">
+                    <h3>C. Automatización de Resúmenes Académicos y de Investigación</h3>
+                    <p>Al recopilar lecturas y bibliografía, cruzar citas y autores de forma manual es propenso a errores.</p>
+                    <p><strong>Solución:</strong> Un script que agrupe automáticamente las notas por autor o categoría conceptual, generando índices dinámicos actualizados al instante cada vez que creas un nuevo documento.</p>
+                </div>
+
+                <h2>4. Estructura de un Script Útil para el Día a Día</h2>
+                <p>Un patrón muy eficiente consiste en estructurar tus scripts dividiéndolos en tres fases lógicas:</p>
+                <ol>
+                    <li><strong>Selección de datos:</strong> Obtención de páginas mediante selectores de etiquetas o rutas (ej. <code>dv.pages('"Investigacion"')</code>).</li>
+                    <li><strong>Procesamiento y transformación:</strong> Filtrado de propiedades nulas, ordenación por fechas de modificación y cálculo de métricas.</li>
+                    <li><strong>Presentación visual:</strong> Volcado de los resultados mediante <code>dv.table()</code>, <code>dv.list()</code> o llamadas directas a componentes visuales.</li>
+                </ol>
+
+                <h2>5. Conclusiones</h2>
+                <p>Dominar DataviewJS transforma Obsidian de un simple repositorio de notas a una potente aplicación personalizada de gestión de datos y flujos de trabajo orientada a la productividad técnica y académica.</p>
+
+                <div class="project-links">
+                    <a href="https://github.com/tu-usuario/proyecto" class="btn btn-secondary" target="_blank" rel="noopener">📦 Ver Ejemplos en GitHub</a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
