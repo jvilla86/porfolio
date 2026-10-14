@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor Web Pro con Gestión de Playlists | José Villa</title>
+    <meta name="description" content="Desarrollo de un reproductor web de audio y video con persistencia en localStorage e importación/exportación de listas en JSON.">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="blog-post-page">
+
+    <header class="site-header">
+        <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo" style="color: #38bdf8; text-decoration: none; font-weight: 600;">← Volver al Blog</a>
+            <nav>
+                <a href="../index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; background-color: #1e293b;">Portafolio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container post-container">
+        <article class="blog-post">
+            <header class="post-header">
+                <div class="post-meta" style="margin-bottom: 8px;">
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Frontend & Web Dev</span>
+                    <time datetime="2026-10-14" style="color: #64748b; font-size: 0.85rem; margin-left: 10px;">14 de Octubre, 2026</time>
+                </div>
+                <h1>Desarrollo de un Reproductor Web Pro con Gestión de Playlists y LocalStorage</h1>
+                <p class="lead">Cómo construir una aplicación multimedia ligera y sin dependencias externas en JavaScript vainilla, integrando persistencia local y portabilidad de datos mediante JSON.</p>
+            </header>
+
+            <hr class="divider">
+
+            <section class="post-content">
+                <h2>1. Introducción y Motivación</h2>
+                <p>En muchas ocasiones, las aplicaciones multimedia de terceros vienen saturadas de rastreadores, publicidad o interfaces pesadas. Con el objetivo de disponer de una herramienta propia, rápida y completamente bajo mi control para la gestión de URLs de audio y video online, desarrollé un reproductor web modular enfocado en la experiencia de usuario y la ligereza.</p>
+                <p>El proyecto prescinde por completo de frameworks pesados, apostando por <strong>HTML5, CSS3 y Vanilla JavaScript</strong> optimizados para ejecutarse de forma instantánea en cualquier navegador moderno.</p>
+
+                <h2>2. Arquitectura y Características Clave</h2>
+                <p>La aplicación se estructuró bajo un modelo de componentes lógicos ligeros:</p>
+                <ul>
+                    <li><strong>Control de Medios Nativo:</strong> Integración directa con las etiquetas multimedia de HTML5 para garantizar compatibilidad total con códecs de audio y video en streaming.</li>
+                    <li><strong>Gestión Dinámica de Playlists:</strong> Capacidad para crear, organizar y alternar múltiples listas de reproducción de manera fluida.</li>
+                    <li><strong>Persistencia Local (LocalStorage):</strong> Almacenamiento automático del estado de las listas y pistas recientes directamente en el navegador del usuario, evitando pérdida de datos al recargar la página.</li>
+                    <li><strong>Portabilidad JSON:</strong> Funcionalidad nativa para exportar listas de reproducción completas a un archivo JSON local y volver a importarlas en cualquier otro dispositivo.</li>
+                </ul>
+
+                <h2>3. Desafíos Técnicos y Soluciones</h2>
+                
+                <div class="callout-box">
+                    <h3>A. Persistencia Robusta sin Backend</h3>
+                    <p>Al tratarse de una aplicación puramente estática, el almacenamiento dependía exclusivamente de los recursos del navegador.</p>
+                    <p><strong>Solución:</strong> Implementación de una capa de abstracción sobre <code>localStorage</code> con serialización JSON estructurada, manejando excepciones de cuota superada y validación de esquemas al recuperar los datos.</p>
+                </div>
+
+                <div class="callout-box">
+                    <h3>B. Importación y Validación de Archivos JSON</h3>
+                    <p>Permitir al usuario cargar ficheros de listas externos presentaba riesgos de errores de sintaxis o estructuras de datos incompatibles.</p>
+                    <p><strong>Solución:</strong> Creación de un validador previo en JavaScript que comprueba la presencia de las claves obligatorias (como títulos y URLs válidas) antes de fusionar los datos con el estado actual.</p>
+                </div>
+
+                <div class="callout-box">
+                    <h3>C. Interfaz Limpia y Adaptable</h3>
+                    <p>Mantener una estética coherente con el resto del ecosistema del portafolio.</p>
+                    <p><strong>Solución:</strong> Diseño basado en CSS Grid y Flexbox con una paleta oscura moderna, garantizando una excelente usabilidad tanto en escritorios como en dispositivos móviles.</p>
+                </div>
+
+                <h2>4. Conclusiones y Código</h2>
+                <p>Este desarrollo demuestra que es posible construir herramientas web potentes, útiles y con total soberanía sobre los datos propios utilizando únicamente tecnologías web nativas, sin dependencias de terceros.</p>
+
+                <div class="project-links">
+                    <a href="https://github.com/tu-usuario/proyecto" class="btn btn-secondary" target="_blank" rel="noopener">📦 Ver Código en GitHub</a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
