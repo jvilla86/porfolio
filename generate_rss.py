@@ -58,7 +58,7 @@ def generate_rss():
     # Recorrer la carpeta blog/ buscando archivos .html
     for root, _, files in os.walk(BLOG_DIR):
         for file in files:
-            if file.endswith(".html") and file != "index.html" and file != "plantilla-articulo.html":
+            if file.endswith(".html") and file != "index.html" and file != "plantilla.html":
                 file_path = os.path.join(root, file)
                 meta = extract_meta(file_path)
                 items.append(meta)
