@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciberseguridad Web Práctica: Protección con rel="noopener" y Cabeceras HTTPS | José Villa</title>
+    <meta name="description" content="Análisis técnico sobre la prevención del tabnabbing mediante rel=noopener y la implementación de cabeceras de seguridad HSTS para forzar conexiones HTTPS seguras.">
+    <meta name="keywords" content="ciberseguridad web, noopener noreferrer, tabnabbing, HSTS, HTTPS forzado, seguridad frontend, HTTP Security Headers, Cloudflare">
+    <meta name="author" content="José Villa">
+    
+    <!-- Open Graph / Redes Sociales (SEO & GEO) -->
+    <meta property="og:title" content="Ciberseguridad Web Práctica: rel='noopener' y HTTPS Forzado">
+    <meta property="og:description" content="Guía de bastionado web: cómo evitar el secuestro de pestañas con noopener y asegurar las comunicaciones del usuario con HSTS.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://josevilla.dev/blog/ciberseguridad-web-practica.html">
+    <meta property="article:published_time" content="2026-10-14T14:00:00+02:00">
+    <meta property="article:author" content="José Villa">
+    
+    <!-- Schema.org Data Structured for AI / Search Engines (GEO & SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Ciberseguridad Web Práctica: Protección con rel='noopener' y Cabeceras HTTPS",
+      "description": "Análisis de vectores de ataque en el navegador y medidas de bastionado web mediante atributos HTML de enlace y cabeceras de seguridad HTTP.",
+      "author": {
+        "@type": "Person",
+        "name": "José Villa",
+        "url": "https://josevilla.dev"
+      },
+      "datePublished": "2026-10-14",
+      "inLanguage": "es",
+      "mainEntityOfPage": "https://josevilla.dev/blog/ciberseguridad-web-practica.html",
+      "keywords": ["Ciberseguridad", "Tabnabbing", "HSTS", "HTTPS", "Noopener", "Security Headers"]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="blog-post-page">
+
+    <header class="site-header">
+        <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" class="logo" style="color: #38bdf8; text-decoration: none; font-weight: 600;">← Volver al Portafolio</a>
+            <nav>
+                <a href="index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; background-color: #1e293b;">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container post-container">
+        <article class="blog-post">
+            <header class="post-header">
+                <div class="post-meta" style="margin-bottom: 8px;">
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Cybersecurity & Web</span>
+                    <time datetime="2026-10-14" style="color: #64748b; font-size: 0.85rem; margin-left: 10px;">14 de Octubre, 2026</time>
+                </div>
+                <h1>Ciberseguridad Web Práctica: Protección con rel="noopener" y Cabeceras HTTPS</h1>
+                <p class="lead">Incluso en aplicaciones web estáticas, la seguridad en el cliente y la infraestructura resulta crítica. Analizamos cómo prevenir el secuestro de pestañas (Tabnabbing) y forzar comunicaciones cifradas con HSTS.</p>
+            </header>
+
+            <hr class="divider">
+
+            <section class="post-content">
+                <h2>1. La Falsa Sensación de Inmunidad en el Web Frontend</h2>
+                <p>Existe la creencia extendida de que los sitios web estáticos o sin base de datos están completamente exentos de riesgos de ciberseguridad. Si bien la superficie de ataque se reduce notablemente al no existir código ejecutable en el servidor (RCE, SQLi), el navegador del usuario sigue siendo un entorno expuesto a diversas vulnerabilidades y manipulaciones.</p>
+                <p>Proteger una plataforma web implica aplicar principios de <strong>bastionado (hardening)</strong> tanto en la capa del DOM como en las cabeceras de transporte HTTP.</p>
+
+                <h2>2. El Peligro Oculto de `target="_blank"` y la Amenaza de Tabnabbing</h2>
+                <p>Es una práctica habitual configurar los enlaces salientes para que se abran en una nueva pestaña mediante el atributo <code>target="_blank"</code>. Sin embargo, si este enlace se implementa de forma descuidada, se abre una brecha de seguridad conocida como <strong>Reverse Tabnabbing</strong>.</p>
+
+                <div class="callout-box">
+                    <h3>¿Cómo funciona el ataque de Reverse Tabnabbing?</h3>
+                    <p>Cuando la Pestaña A (tu web) abre la Pestaña B (sitio externo) mediante <code>target="_blank"</code>, la nueva pestaña obtiene acceso implícito al objeto JavaScript <code>window.opener</code> de tu sitio.</p>
+                    <p>Si el sitio de destino es malicioso o ha sido vulnerado, un script malintencionado puede ejecutar la instrucción:</p>
+                    <pre style="background: #0f172a; padding: 10px; border-radius: 4px; color: #ef4444; font-size: 0.85rem; margin-top: 8px;"><code>window.opener.location = "https://web-falsa-phishing.com";</code></pre>
+                    <p>Mientras el usuario navega por la nueva pestaña, la pestaña original de tu web redirige en segundo plano a una página clonada de phishing (por ejemplo, una pantalla de login falsa). Cuando el usuario regresa a tu pestaña, no nota el cambio de URL y puede introducir sus credenciales creyendo que sigue en un entorno legítimo.</p>
+                </div>
+
+                <h3>La Solución: `rel="noopener noreferrer"`</h3>
+                <p>Para mitigar este vector de ataque, la especificación HTML5 introdujo dos valores fundamentales para el atributo <code>rel</code>:</p>
+                <ul>
+                    <li><code>noopener</code>: Indica al navegador que desvincule el contexto de navegación, haciendo que <code>window.opener</code> sea <code>null</code> en la nueva pestaña.</li>
+                    <li><code>noreferrer</code>: Además de incluir la funcionalidad de noopener, evita que el navegador envíe la cabecera HTTP <code>Referer</code> al destino, protegiendo la privacidad de la ruta de origen.</li>
+                </ul>
+
+                <pre style="background: #0f172a; padding: 15px; border-radius: 6px; border: 1px solid #334155; color: #38bdf8; overflow-x: auto; font-family: monospace; font-size: 0.9rem;"><code>&lt;!-- Enlace seguro contra Tabnabbing --&gt;
+&lt;a href="https://ejemplo.com" target="_blank" rel="noopener noreferrer"&gt;Visitar enlace&lt;/a&gt;</code></pre>
+
+                <h2>3. Forzado de Conexiones Cifradas: HSTS y Redirección HTTPS</h2>
+                <p>Garantizar que todo el tráfico entre el usuario y el servidor transcurra bajo TLS/SSL (HTTPS) es un requisito indispensable en la web actual. Dejar abiertas las conexiones HTTP no cifradas expone a los usuarios a ataques de intercepción <strong>Man-in-the-Middle (MitM)</strong> o inyección de contenido en redes Wi-Fi públicas.</p>
+
+                <h3>A. Redirección Automática HTTP a HTTPS</h3>
+                <p>El primer nivel de defensa consiste en configurar la infraestructura de red (por ejemplo, Cloudflare o un proxy inverso) para redirigir automáticamente cualquier petición recibida por el puerto 80 (HTTP) hacia el puerto 443 (HTTPS).</p>
+
+                <h3>B. Cabecera HSTS (HTTP Strict Transport Security)</h3>
+                <p>Incluso con redirecciones activas, existe una ventana de vulnerabilidad en la primera petición inicial no cifrada (ataques de degradación o <em>SSL Stripping</em>). Para cerrar este agujero, se utiliza la cabecera de respuesta HTTP <strong>HSTS</strong>.</p>
+
+                <div class="callout-box">
+                    <h3>Estructura de la cabecera HSTS recomendada:</h3>
+                    <pre style="background: #0f172a; padding: 10px; border-radius: 4px; color: #38bdf8; font-size: 0.85rem; margin-top: 8px;"><code>Strict-Transport-Security: max-age=31536000; includeSubDomains; preload</code></pre>
+                    <ul style="margin-top: 10px;">
+                        <li><code>max-age=31536000</code>: Ordena al navegador recordar durante un año (en segundos) que solo debe conectarse mediante HTTPS.</li>
+                        <li><code>includeSubDomains</code>: Aplica la directiva a todos los subdominios presentes y futuros.</li>
+                        <li><code>preload</code>: Permite inscribir el dominio en la lista global de precarga de los principales navegadores, garantizando que nunca se realice una primera petición no cifrada.</li>
+                    </ul>
+                </div>
+
+                <h2>4. Conclusión y Buenas Prácticas de Bastionado</h2>
+                <p>Aplicar revisiones periódicas sobre la sintaxis de enlaces salientes (<code>rel="noopener"</code>) y verificar la correcta propagación de las cabeceras HTTP de seguridad son hábitos sencillos pero de un valor incalculable para garantizar la privacidad e integridad de los visitantes.</p>
+
+                
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
