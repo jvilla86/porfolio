@@ -183,6 +183,18 @@
     transition: all 0.2s ease;
 }
 
+
+
+/* ---- TARJETA PRESENTACIÓN -- */
+
+.tarjeta-presentacion {
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tarjeta-presentacion:hover {
+        border-color: rgba(56, 189, 248, 0.6) !important;
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    }
+
 .site-header nav a:hover {
     color: #ffffff;
     background-color: #334155;
