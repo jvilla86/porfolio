@@ -1,0 +1,39 @@
+name: Actualizar Feed RSS Automáticamente
+
+on:
+  push:
+    branches:
+      - main  # O 'master', dependiendo de cómo se llame tu rama principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar entorno Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Ejecutar script generador de RSS
+        run: python generate_rss.py
+
+      - name: Configurar identidad de Git para el bot
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Comprobar si hay cambios en el feed.xml y guardarlos
+        run: |
+          git status
+          git add feed.xml
+          # Si hay cambios en el feed, hace commit y push automáticamente
+          if git diff --staged --quiet; then
+            echo "No hay cambios en el feed RSS."
+          else
+            git commit -m "chore: actualizar feed.xml automáticamente [skip ci]"
+            git push
+          fi
