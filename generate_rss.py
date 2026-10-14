@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 
 # Configuración del blog
-SITE_TITLE = "José Villa | Blog Técnico"
+SITE_TITLE = "Blog - José Villa"
 SITE_URL = "https://josevilla.dev"
 BLOG_DIR = "blog"
 OUTPUT_FILE = "feed.xml"
@@ -74,7 +74,7 @@ def generate_rss():
     <channel>
         <title>{SITE_TITLE}</title>
         <link>{SITE_URL}/blog/index.html</link>
-        <description>Artículos sobre desarrollo, ciberseguridad, productividad, ciencia de datos y ecología práctica.</description>
+        <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
         <lastBuildDate>{now_str}</lastBuildDate>
         <atom:link href="{SITE_URL}/{OUTPUT_FILE}" rel="self" type="application/rss+xml"/>
