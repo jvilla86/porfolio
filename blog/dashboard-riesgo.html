@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Riesgo de Mercados | José Villa</title>
-    <meta name="description" content="Análisis sobre la automatización del seguimiento de la EMA 200, procesamiento de datos de mercado con Python e integración de alertas.">
+    <title>Dashboard de Riesgo de Mercados con FRED | José Villa</title>
+    <meta name="description" content="Automatización en Python para la extracción de indicadores macroeconómicos desde la API de FRED y su visualización en un dashboard analítico.">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="blog-post-page">
@@ -22,59 +22,58 @@
         <article class="blog-post">
             <header class="post-header">
                 <div class="post-meta">
-                    <span class="category">Fintech & Data</span>
+                    <span class="category">Data & Macroeconomics</span>
                     <time datetime="2026-10-14">14 de Octubre, 2026</time>
                 </div>
-                <h1>Construcción de un Dashboard de Monitoreo de Riesgo de Mercados y Medias Móviles</h1>
-                <p class="lead">Un análisis sobre la automatización del seguimiento de la EMA de 200 periodos, procesamiento de datos de mercado con Python e integración de alertas en tiempo real.</p>
+                <h1>Extracción y Análisis Automatizado de Datos Macroescala con la API de FRED</h1>
+                <p class="lead">Cómo estructurar un pipeline en Python para conectar con Federal Reserve Economic Data, procesar series temporales y desplegar un dashboard de riesgo de mercado.</p>
             </header>
 
             <hr class="divider">
 
             <section class="post-content">
                 <h2>1. Introducción y Contexto</h2>
-                <p>En el ámbito del análisis técnico y la gestión de riesgo en mercados financieros, la <strong>media móvil exponencial de 200 periodos (EMA 200)</strong> constituye uno de los indicadores institucionales más respetados para determinar la tendencia macro de un activo. Evaluar de forma constante si el precio se sitúa por encima o por debajo de este nivel crítico permite establecer un sesgo claro de mercado y gestionar la exposición al riesgo de forma sistemática.</p>
-                <p>Con el objetivo de eliminar el componente emocional y automatizar este seguimiento, desarrollé una aplicación interactiva orientada al monitoreo continuo de activos financieros, integrando la captura de datos en tiempo real, cálculo de indicadores y un sistema de alertas automatizado.</p>
+                <p>Para evaluar la salud y el riesgo sistémico de la economía global, el análisis técnico por sí solo resulta insuficiente; es necesario integrar variables fundamentales y macroeconómicas de fuentes oficiales. Una de las bases de datos públicas más robustas a nivel mundial es <strong>FRED (Federal Reserve Economic Data)</strong>, gestionada por el Banco de la Reserva Federal de St. Louis.</p>
+                <p>Con el fin de centralizar y automatizar el seguimiento de indicadores clave (como tipos de interés, inflación, empleo o liquidez), desarrollé una aplicación en Python capaz de consultar la API de FRED de forma periódica, procesar las series temporales y presentarlas en un panel interactivo.</p>
 
-                <h2>2. Arquitectura y Tecnologías</h2>
-                <p>La arquitectura de la solución se diseñó bajo los principios de modularidad y eficiencia, utilizando el ecosistema de <strong>Python</strong> para el pipeline de datos y despliegue:</p>
+                <h2>2. Arquitectura del Pipeline de Datos</h2>
+                <p>El flujo de información se diseñó bajo un enfoque modular utilizando el ecosistema de Python:</p>
                 <ul>
-                    <li><strong>Extracción de Datos:</strong> Integración con APIs financieras (vía <code>ccxt</code> para la API de Kraken y librerías de datos de mercado) para obtener velas históricas (<em>OHLCV</em>) de forma rápida y estructurada.</li>
-                    <li><strong>Procesamiento e Indicadores:</strong> Uso de <strong>Pandas</strong> y <strong>NumPy</strong> para la manipulación vectorial de datos, cálculo preciso de la EMA 200 y filtrado de divergencias de precio.</li>
-                    <li><strong>Frontend e Interfaz:</strong> Despliegue interactivo mediante <strong>Streamlit</strong>, lo que permite una visualización limpia, ligera y adaptable tanto a escritorio como a dispositivos móviles.</li>
-                    <li><strong>Automatización y Alertas:</strong> Flujos de trabajo automatizados para la ejecución periódica del análisis y el envío de notificaciones cuando se detectan cruces o aproximaciones a zonas clave.</li>
+                    <li><strong>Conexión a la API:</strong> Uso de peticiones HTTP estructuradas y librerías especializadas (como <code>pandas-datareader</code> o solicitudes directas vía <code>requests</code>) autenticadas mediante clave de API para la obtención de series históricas.</li>
+                    <li><strong>Procesamiento y Limpieza:</strong> Transformación de los datos mediante <strong>Pandas</strong> para normalizar fechas, gestionar valores nulos (frecuentes debido a las diferentes periodicidades de publicación de los indicadores) y unificar marcos temporales.</li>
+                    <li><strong>Interfaz y Visualización:</strong> Despliegue de un dashboard interactivo optimizado para una lectura rápida de las desviaciones y tendencias macro.</li>
                 </ul>
 
                 <h2>3. Desafíos Técnicos y Soluciones</h2>
                 
                 <div class="callout-box">
-                    <h3>A. Gestión Eficiente del Cacheo de Datos</h3>
-                    <p>Llamar a APIs públicas de forma recurrente en cada interacción de usuario puede provocar bloqueos por límite de tasa (<em>rate-limiting</em>).</p>
-                    <p><strong>Solución:</strong> Implementación de decoradores de almacenamiento en caché en el backend para consultar la API solo en los intervalos de cierre de vela correspondientes, optimizando la latencia de carga a milisegundos.</p>
+                    <h3>A. Sincronización de Periodicidades Mixtas</h3>
+                    <p>FRED aloja datos con frecuencias muy diversas: algunos indicadores se actualizan diariamente (como tipos de cambio o tipos de interés), otros semanalmente, y muchos mensualmente o trimestralmente.</p>
+                    <p><strong>Solución:</strong> Implementación de rutinas de interpolación y alineación de índices temporales en Pandas para evitar desajustes al cruzar métricas en los gráficos del dashboard.</p>
                 </div>
 
                 <div class="callout-box">
-                    <h3>B. Precisión en el Cálculo de la EMA 200</h3>
-                    <p>A diferencia de la media móvil simple (SMA), la EMA otorga un peso exponencial a las observaciones más recientes.</p>
-                    <p><strong>Solución:</strong> Ingesta de un histórico amplio de velas previa al cálculo para asegurar la convergencia matemática del factor de suavizado.</p>
+                    <h3>B. Optimización de Solicitudes y Caché</h3>
+                    <p>Consultar múltiples series históricas pesadas en cada recarga de la interfaz ralentiza innecesariamente la aplicación y consume cuota de peticiones.</p>
+                    <p><strong>Solución:</strong> Capa intermedia de almacenamiento en caché local y temporal, asegurando que las series macroeconómicas se actualicen únicamente cuando se publican nuevos boletines oficiales.</p>
                 </div>
 
                 <div class="callout-box">
-                    <h3>C. Alertas Automatizadas y Despliegue</h3>
-                    <p>Garantizar la ejecución continua sin depender de infraestructura local.</p>
-                    <p><strong>Solución:</strong> Automatización de ejecuciones periódicas mediante tareas programadas e integración en la nube, asegurando que los reportes lleguen puntual y sistemáticamente.</p>
+                    <h3>C. Automatización y Alertas de Desviación</h3>
+                    <p>Vigilar manualmente cambios críticos en los indicadores macro resulta ineficiente.</p>
+                    <p><strong>Solución:</strong> Inclusión de reglas lógicas que evalúan las últimas lecturas frente a medias históricas o umbrales de riesgo, generando avisos automáticos ante movimientos anómalos.</p>
                 </div>
 
-                <h2>4. Captura de la Interfaz y Flujo de Uso</h2>
-                <p>El dashboard se divide principalmente en tres bloques de control:</p>
+                <h2>4. Estructura del Dashboard</h2>
+                <p>La herramienta se divide en bloques funcionales orientados al analista:</p>
                 <ol>
-                    <li><strong>Panel de Selección:</strong> Permite al usuario filtrar el activo financiero y el marco temporal de análisis.</li>
-                    <li><strong>Gráfico Interactivo:</strong> Visualización del comportamiento del precio respecto a la EMA 200 con marcadores dinámicos de volatilidad.</li>
-                    <li><strong>Métricas de Estado:</strong> Indicadores numéricos resumidos (<em>Distancia % a la EMA</em>, <em>Estado del Sesgo Macro</em> y <em>Nivel de Volatilidad</em>).</li>
+                    <li><strong>Selector de Series FRED:</strong> Permite alternar y comparar de manera dinámica entre diferentes categorías de indicadores económicos.</li>
+                    <li><strong>Gráficos de Tendencia Histórica:</strong> Visualización limpia de la evolución a largo plazo con bandas de referencia estadística.</li>
+                    <li><strong>Panel de Alertas de Riesgo:</strong> Resumen ejecutivo con los últimos cambios porcentuales y desvíaciones de la norma histórica.</li>
                 </ol>
 
-                <h2>5. Conclusiones y Enlaces</h2>
-                <p>Este proyecto demuestra cómo la combinación de herramientas de código abierto en Python permite construir herramientas de grado profesional para la toma de decisiones informadas y la mitigación del riesgo en mercados volátiles.</p>
+                <h2>5. Conclusiones</h2>
+                <p>Integrar fuentes de datos institucionales como FRED en herramientas de desarrollo propio permite construir un sistema de análisis macroeconómico fiable, transparente y completamente adaptado a necesidades específicas de monitoreo de riesgo.</p>
 
                 <div class="project-links">
                     <a href="https://market-stress-monitor.streamlit.app/" class="btn btn-primary" target="_blank" rel="noopener">🚀 Probar Demo en Vivo</a>
