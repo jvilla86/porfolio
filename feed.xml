@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>José Villa | Blog Técnico</title>
+        <title>José Villa | Blog</title>
         <link>https://josevilla.dev/blog/index.html</link>
-        <description>Artículos sobre desarrollo, ciberseguridad, productividad, ciencia de datos y ecología práctica.</description>
+        <description>Artículos sobre programación, ciberseguridad, productividad, ecología, y sociedad.</description>
         <language>es</language>
         <lastBuildDate>Wed, 14 Oct 2026 14:00:00 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
@@ -30,6 +30,21 @@
             <guid>https://josevilla.dev/blog/dataviewjs-obsidian.html</guid>
             <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
             <description>Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos y automatizar flujos de trabajo.</description>
+        </item>
+
+        <item>
+            <title>Reproductor Web Pro con Gestión de Playlists y LocalStorage</title>
+            <link>https://josevilla.dev/blog/reproductor-playlists</link>
+            <guid>https://josevilla.dev/blog/reproductor-playlists</guid>
+            <pubDate>Wed, 14 Oct 2026 09:30:00 +0200</pubDate>
+            <description>Cómo construir una aplicación multimedia ligera y sin dependencias externas en JavaScript vainilla, integrando persistencia local y portabilidad de datos mediante JSON.</description>
+        </item>
+        <item>
+            <title>Medidor de riesgo de crisis en los mercados</title>
+            <link>https://josevilla.dev/blog/dashboard-riesgo</link>
+            <guid>https://josevilla.dev/blog/dashboard-riesgo</guid>
+            <pubDate>Wed, 14 Oct 2026 09:00:00 +0200</pubDate>
+            <description>Cómo estructurar un pipeline en Python para conectar con Federal Reserve Economic Data (FRED), procesar series temporales complejas y desplegar un dashboard analítico de riesgo financiero.</description>
         </item>
 
     </channel>
