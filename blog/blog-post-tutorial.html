@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatiza tu Blog Minimalista: Convierte Markdown a HTML con Python | José Villa</title>
+    <meta name="description" content="Tutorial paso a paso para crear un script en Python que procesa archivos Markdown, aplica plantillas HTML y automatiza la publicación estática.">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --border-color: #334155;
+            --code-bg: #090d16;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .meta-info {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        ul {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        pre code {
+            color: #e2e8f0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 2.5rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="back-link">&larr; Volver al inicio</a>
+        <div class="meta-info">📅 15 de Octubre, 2026 &bull; 📂 Python / Automatización</div>
+        <h1>Automatiza tu Blog Minimalista: Convierte Markdown a HTML con Python</h1>
+    </header>
+
+    <main>
+        <p>Escribir directamente en HTML cuando gestionas un sitio web estático puede volverse tedioso y lento. Lo ideal es separar el contenido de la estructura visual: redactar cómodamente en <strong>Markdown (<code>.md</code>)</strong> y dejar que un script se encargue de inyectar esas notas dentro de tu plantilla corporativa.</p>
+        
+        <p>En este tutorial veremos cómo construir un script en Python muy ligero que automatiza todo este proceso en local para tu repositorio.</p>
+
+        <hr>
+
+        <h2>1. Requisitos previos y dependencias</h2>
+        
+        <p>Para compilar Markdown desde Python de forma eficiente, utilizaremos la biblioteca oficial <code>markdown</code>. Asegúrate de tenerla instalada en tu entorno (por ejemplo, en Manjaro Linux) ejecutando el siguiente comando en tu terminal:</p>
+
+        <pre><code>pip install markdown</code></pre>
+
+        <p>Estructura tu proyecto de manera que tengas una carpeta <code>content/</code> para tus borradores en Markdown y una carpeta <code>blog/</code> donde se almacene tu archivo <code>plantilla-articulo.html</code>.</p>
+
+        <hr>
+
+        <h2>2. El Script de Automatización (<code>build_blog.py</code>)</h2>
+        
+        <p>Crea un archivo llamado <code>build_blog.py</code> en la raíz de tu proyecto con el siguiente código base. Este script leerá automáticamente todos los archivos <code>.md</code>, extraerá sus metadatos principales, los convertirá a HTML estructurado y los volcará en la carpeta del blog:</p>
+
+        <pre><code>import os
+import re
+import markdown
+
+CONTENT_DIR = "content"
+BLOG_DIR = "blog"
+TEMPLATE_FILE = os.path.join(BLOG_DIR, "plantilla-articulo.html")
+
+def build_posts():
+    if not os.path.exists(CONTENT_DIR):
+        os.makedirs(CONTENT_DIR)
+        print(f"Se ha creado la carpeta '{CONTENT_DIR}'. Pon ahí tus archivos .md")
+        return
+
+    if not os.path.exists(TEMPLATE_FILE):
+        print(f"Error: No se encuentra la plantilla en {TEMPLATE_FILE}")
+        return
+
+    # Leer la plantilla base del blog
+    with open(TEMPLATE_FILE, "r", encoding="utf-8") as f:
+        template = f.read()
+
+    md_files = [f for f in os.listdir(CONTENT_DIR) if f.endswith(".md")]
+    if not md_files:
+        print(f"No hay archivos .md en la carpeta '{CONTENT_DIR}/'.")
+        return
+
+    for file in md_files:
+        md_path = os.path.join(CONTENT_DIR, file)
+        with open(md_path, "r", encoding="utf-8") as f:
+            md_content = f.read()
+
+        # Extraer metadatos superiores (Frontmatter básico)
+        lines = md_content.split("\n")
+        metadata = {}
+        content_lines = []
+        
+        is_metadata = True
+        for line in lines:
+            if is_metadata:
+                if ":" in line:
+                    key, val = line.split(":", 1)
+                    metadata[key.strip().lower()] = val.strip()
+                elif line.strip() == "":
+                    is_metadata = False
+                continue
+            content_lines.append(line)
+        
+        clean_md = "\n".join(content_lines)
+        
+        # Convertir Markdown a HTML con soporte para tablas y bloques de código
+        html_body = markdown.markdown(clean_md, extensions=['fenced_code', 'tables'])
+
+        title = metadata.get("titulo", "Artículo sin título")
+        description = metadata.get("descripcion", "")
+        
+        post_html = template
+
+        # Remplazar elementos clave de SEO en la plantilla
+        post_html = re.sub(r"&lt;title&gt;.*?&lt;/title&gt;", f"&lt;title&gt;{title} | José Villa&lt;/title&gt;", post_html)
+        post_html = re.sub(r'&lt;meta name="description" content=".*?"&gt;', f'&lt;meta name="description" content="{description}"&gt;', post_html)
+        post_html = re.sub(r'&lt;h1&gt;.*?&lt;/h1&gt;', f'&lt;h1&gt;{title}&lt;/h1&gt;', post_html, count=1)
+        
+        # Inyectar el cuerpo del artículo en la etiqueta de la plantilla
+        if "&lt;!-- CONTENT --&gt;" in post_html:
+            post_html = post_html.replace("&lt;!-- CONTENT --&gt;", html_body)
+
+        html_filename = file.replace(".md", ".html")
+        html_output_path = os.path.join(BLOG_DIR, html_filename)
+
+        with open(html_output_path, "w", encoding="utf-8") as f:
+            f.write(post_html)
+
+        print(f"¡Compilado con éxito!: {file} -&gt; blog/{html_filename}")
+
+if __name__ == "__main__":
+    build_posts()</code></pre>
+
+        <hr>
+
+        <h2>3. Preparación de la Plantilla HTML</h2>
+        
+        <p>Para que el script sepa exactamente dónde colocar el texto generado a partir del Markdown, añade la siguiente marca de comentario dentro del cuerpo principal de tu archivo <code>plantilla-articulo.html</code>:</p>
+
+        <pre><code>&lt;main class="contenedor-articulo"&gt;
+    &lt;h1&gt;Título por defecto&lt;/h1&gt;
+    &lt;!-- CONTENT --&gt;
+&lt;/main&gt;</code></pre>
+
+        <hr>
+
+        <h2>4. Flujo de trabajo diario</h2>
+        
+        <p>Una vez configurado el entorno, redactar un nuevo artículo se convierte en una tarea de tres simples pasos:</p>
+
+        <ul>
+            <li>Escribe tu artículo en formato <code>.md</code> dentro de la carpeta <code>content/</code>.</li>
+            <li>Ejecuta el script de compilación en tu terminal:
+                <pre><code>python build_blog.py</code></pre>
+            </li>
+            <li>Sube los cambios generados a tu repositorio usando Git:
+                <pre><code>git add .
+git commit -m "feat: añadir nuevo artículo generado automáticamente"
+git push origin main</code></pre>
+            </li>
+        </ul>
+
+        <p>De esta forma mantienes un entorno limpio, desacoplado y optimizado para la creación de contenido web estático.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
