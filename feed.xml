@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>José Villa | Blog Técnico</title>
+        <link>https://josevilla.dev/blog/index.html</link>
+        <description>Artículos sobre desarrollo, ciberseguridad, productividad, ciencia de datos y ecología práctica.</description>
+        <language>es</language>
+        <lastBuildDate>Wed, 14 Oct 2026 14:00:00 +0200</lastBuildDate>
+        <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
+
+        <item>
+            <title>Ciberseguridad Web Práctica: Protección con rel="noopener" y Cabeceras HTTPS</title>
+            <link>https://josevilla.dev/blog/ciberseguridad-web-practica.html</link>
+            <guid>https://josevilla.dev/blog/ciberseguridad-web-practica.html</guid>
+            <pubDate>Wed, 14 Oct 2026 14:00:00 +0200</pubDate>
+            <description>Análisis técnico sobre la prevención del tabnabbing mediante rel=noopener y la implementación de cabeceras de seguridad HSTS para forzar conexiones HTTPS seguras.</description>
+        </item>
+
+        <item>
+            <title>Sostenibilidad, Ecología Práctica y Autosuficiencia: Cultivos Hidropónicos y Apps de Impacto</title>
+            <link>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</link>
+            <guid>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</guid>
+            <pubDate>Wed, 14 Oct 2026 12:00:00 +0200</pubDate>
+            <description>Guía práctica sobre ecología actual, autosuficiencia en el hogar, fundamentos de cultivos hidropónicos caseros y aplicaciones para reducir la huella ecológica.</description>
+        </item>
+
+        <item>
+            <title>Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas como una Base de Datos</title>
+            <link>https://josevilla.dev/blog/dataviewjs-obsidian.html</link>
+            <guid>https://josevilla.dev/blog/dataviewjs-obsidian.html</guid>
+            <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
+            <description>Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos y automatizar flujos de trabajo.</description>
+        </item>
+
+    </channel>
+</rss>
