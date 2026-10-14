@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>José Villa | Blog</title>
+        <title>José Villa | Blog Técnico</title>
         <link>https://josevilla.dev/blog/index.html</link>
-        <description>Artículos sobre programación, ciberseguridad, productividad, ecología, y sociedad.</description>
+        <description>Artículos sobre desarrollo, ciberseguridad, productividad, ciencia de datos y ecología práctica.</description>
         <language>es</language>
-        <lastBuildDate>Wed, 14 Oct 2026 14:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Wed, 14 Oct 2026 21:10:59 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
-
-        <item>
-            <title>Ciberseguridad Web Práctica: Protección con rel="noopener" y Cabeceras HTTPS</title>
-            <link>https://josevilla.dev/blog/ciberseguridad-web-practica.html</link>
-            <guid>https://josevilla.dev/blog/ciberseguridad-web-practica.html</guid>
-            <pubDate>Wed, 14 Oct 2026 14:00:00 +0200</pubDate>
-            <description>Análisis técnico sobre la prevención del tabnabbing mediante rel=noopener y la implementación de cabeceras de seguridad HSTS para forzar conexiones HTTPS seguras.</description>
-        </item>
 
         <item>
             <title>Sostenibilidad, Ecología Práctica y Autosuficiencia: Cultivos Hidropónicos y Apps de Impacto</title>
             <link>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</link>
             <guid>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</guid>
-            <pubDate>Wed, 14 Oct 2026 12:00:00 +0200</pubDate>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
             <description>Guía práctica sobre ecología actual, autosuficiencia en el hogar, fundamentos de cultivos hidropónicos caseros y aplicaciones para reducir la huella ecológica.</description>
         </item>
-
+        <item>
+            <title>Ciberseguridad Web Práctica: Protección con rel="noopener" y Cabeceras HTTPS</title>
+            <link>https://josevilla.dev/blog/ciberseguridad-web-practica.html</link>
+            <guid>https://josevilla.dev/blog/ciberseguridad-web-practica.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Análisis técnico sobre la prevención del tabnabbing mediante rel=noopener y la implementación de cabeceras de seguridad HSTS para forzar conexiones HTTPS seguras.</description>
+        </item>
         <item>
             <title>Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas como una Base de Datos</title>
             <link>https://josevilla.dev/blog/dataviewjs-obsidian.html</link>
             <guid>https://josevilla.dev/blog/dataviewjs-obsidian.html</guid>
-            <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
-            <description>Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos y automatizar flujos de trabajo.</description>
-        </item>
-
-        <item>
-            <title>Reproductor Web Pro con Gestión de Playlists y LocalStorage</title>
-            <link>https://josevilla.dev/blog/reproductor-playlists</link>
-            <guid>https://josevilla.dev/blog/reproductor-playlists</guid>
-            <pubDate>Wed, 14 Oct 2026 09:30:00 +0200</pubDate>
-            <description>Cómo construir una aplicación multimedia ligera y sin dependencias externas en JavaScript vainilla, integrando persistencia local y portabilidad de datos mediante JSON.</description>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos, automatizar flujos de trabajo y transformar tu bóveda.</description>
         </item>
         <item>
-            <title>Medidor de riesgo de crisis en los mercados</title>
-            <link>https://josevilla.dev/blog/dashboard-riesgo</link>
-            <guid>https://josevilla.dev/blog/dashboard-riesgo</guid>
-            <pubDate>Wed, 14 Oct 2026 09:00:00 +0200</pubDate>
-            <description>Cómo estructurar un pipeline en Python para conectar con Federal Reserve Economic Data (FRED), procesar series temporales complejas y desplegar un dashboard analítico de riesgo financiero.</description>
+            <title>Título Corto del Artículo</title>
+            <link>https://josevilla.dev/blog/plantilla.html</link>
+            <guid>https://josevilla.dev/blog/plantilla.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Escribe aquí una breve descripción de 1-2 frases que resume el contenido del artículo para Google y las IAs.</description>
         </item>
-
+        <item>
+            <title>Medidor de riesgo de crisis en los mercados con Python</title>
+            <link>https://josevilla.dev/blog/dashboard-riesgo.html</link>
+            <guid>https://josevilla.dev/blog/dashboard-riesgo.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Guía técnica sobre cómo construir un pipeline en Python para extraer indicadores macroeconómicos de la Federal Reserve Economic Data (FRED) y analizar riesgo sistémico.</description>
+        </item>
+        <item>
+            <title>Reproductor Web Pro con Gestión de Playlists</title>
+            <link>https://josevilla.dev/blog/reproductor-playlists.html</link>
+            <guid>https://josevilla.dev/blog/reproductor-playlists.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Desarrollo de un reproductor web de audio y video con persistencia en localStorage e importación/exportación de listas en JSON.</description>
+        </item>
     </channel>
 </rss>
