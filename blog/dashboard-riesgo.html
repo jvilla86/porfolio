@@ -3,18 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Riesgo de Mercados con FRED | José Villa</title>
-    <link rel="icon" type="image/png" href="/img/jose.png">
-    <meta name="description" content="Automatización en Python para la extracción de indicadores macroeconómicos desde la API de FRED y su visualización en un dashboard analítico.">
+    <title>Dashboard de Riesgo Financiero con Python y la API de FRED | José Villa</title>
+    <meta name="description" content="Guía técnica sobre cómo construir un pipeline en Python para extraer indicadores macroeconómicos de la Federal Reserve Economic Data (FRED) y analizar riesgo sistémico.">
+    <meta name="keywords" content="API FRED, análisis macroeconómico, Python finanzas, dashboard de riesgo, series temporales, Pandas, economía cuantitativa">
+    <meta name="author" content="José Villa">
+    
+    <!-- Open Graph / Redes Sociales (SEO & GEO) -->
+    <meta property="og:title" content="Dashboard de Riesgo Financiero con Python y la API de FRED">
+    <meta property="og:description" content="Pipeline automatizado en Python para conectar con Federal Reserve Economic Data, procesar series temporales y evaluar riesgo de mercado.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://josevilla.dev/blog/dashboard-riesgo.html">
+    <meta property="article:published_time" content="2026-10-14T08:00:00+02:00">
+    <meta property="article:author" content="José Villa">
+    
+    <!-- Schema.org Data Structured for AI / Search Engines (GEO & SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Extracción y Análisis Automatizado de Datos Macroescala con la API de FRED",
+      "description": "Guía práctica sobre el desarrollo de pipelines de datos en Python utilizando la API de FRED para el análisis de riesgo macroeconómico y financiero.",
+      "author": {
+        "@type": "Person",
+        "name": "José Villa",
+        "url": "https://josevilla.dev"
+      },
+      "datePublished": "2026-10-14",
+      "inLanguage": "es",
+      "mainEntityOfPage": "https://josevilla.dev/blog/dashboard-riesgo.html",
+      "keywords": ["API FRED", "Python", "Macroeconomía", "Análisis de Riesgo", "Series Temporales"]
+    }
+    </script>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="blog-post-page">
 
     <header class="site-header">
-        <div class="container">
-            <a href="../index.html" class="logo">← Volver al Portafolio</a>
+        <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" class="logo" style="color: #38bdf8; text-decoration: none; font-weight: 600;">← Volver al Portafolio</a>
             <nav>
-                <a href="index.html">Blog</a>
+                <a href="index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; background-color: #1e293b;">Blog</a>
             </nav>
         </div>
     </header>
@@ -22,69 +51,69 @@
     <main class="container post-container">
         <article class="blog-post">
             <header class="post-header">
-                <div class="post-meta">
-                    <span class="category">Data & Macroeconomics</span>
-                    <time datetime="2026-10-14">14 de Octubre, 2026</time>
+                <div class="post-meta" style="margin-bottom: 8px;">
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Data & Macroeconomics</span>
+                    <time datetime="2026-10-14" style="color: #64748b; font-size: 0.85rem; margin-left: 10px;">14 de Octubre, 2026</time>
                 </div>
                 <h1>Extracción y Análisis Automatizado de Datos Macroescala con la API de FRED</h1>
-                <p class="lead">Cómo estructurar un pipeline en Python para conectar con Federal Reserve Economic Data, procesar series temporales y desplegar un dashboard de riesgo de mercado.</p>
+                <p class="lead">Cómo estructurar un pipeline en Python para conectar con Federal Reserve Economic Data (FRED), procesar series temporales complejas y desplegar un dashboard analítico de riesgo financiero.</p>
             </header>
 
             <hr class="divider">
 
             <section class="post-content">
-                <h2>1. Introducción y Contexto</h2>
-                <p>Para evaluar la salud y el riesgo sistémico de la economía global, el análisis técnico por sí solo resulta insuficiente; es necesario integrar variables fundamentales y macroeconómicas de fuentes oficiales. Una de las bases de datos públicas más robustas a nivel mundial es <strong>FRED (Federal Reserve Economic Data)</strong>, gestionada por el Banco de la Reserva Federal de St. Louis.</p>
-                <p>Con el fin de centralizar y automatizar el seguimiento de indicadores clave (como tipos de interés, inflación, empleo o liquidez), desarrollé una aplicación en Python capaz de consultar la API de FRED de forma periódica, procesar las series temporales y presentarlas en un panel interactivo.</p>
+                <h2>1. Introducción al Análisis de Riesgo Macroescala</h2>
+                <p>Para evaluar con rigor la salud y el riesgo sistémico de los mercados financieros globales, el análisis técnico y de precios resulta insuficiente de forma aislada. Es estrictamente necesario integrar variables fundamentales y macroeconómicas procedentes de fuentes institucionales oficiales. Una de las bases de datos públicas más completas del mundo es <strong>FRED (Federal Reserve Economic Data)</strong>, mantenida por el Banco de la Reserva Federal de St. Louis.</p>
+                <p>Con el propósito de centralizar y automatizar el seguimiento de indicadores críticos —como tipos de interés reales, curvas de tipos, inflación subyacente y métricas de liquidez—, diseñé una aplicación analítica en Python que interactúa directamente con la API de FRED.</p>
 
-                <h2>2. Arquitectura del Pipeline de Datos</h2>
-                <p>El flujo de información se diseñó bajo un enfoque modular utilizando el ecosistema de Python:</p>
+                <h2>2. Arquitectura del Pipeline de Datos Financieros</h2>
+                <p>El flujo de información y procesamiento de datos se estructuró bajo un enfoque modular orientado a rendimiento:</p>
                 <ul>
-                    <li><strong>Conexión a la API:</strong> Uso de peticiones HTTP estructuradas y librerías especializadas (como <code>pandas-datareader</code> o solicitudes directas vía <code>requests</code>) autenticadas mediante clave de API para la obtención de series históricas.</li>
-                    <li><strong>Procesamiento y Limpieza:</strong> Transformación de los datos mediante <strong>Pandas</strong> para normalizar fechas, gestionar valores nulos (frecuentes debido a las diferentes periodicidades de publicación de los indicadores) y unificar marcos temporales.</li>
-                    <li><strong>Interfaz y Visualización:</strong> Despliegue de un dashboard interactivo optimizado para una lectura rápida de las desviaciones y tendencias macro.</li>
+                    <li><strong>Conexión y Autenticación con la API:</strong> Empleo de peticiones HTTP seguras y librerías de gestión de datos en Python para consultar los endpoints oficiales de FRED mediante tokens cifrados.</li>
+                    <li><strong>Limpieza y Normalización con Pandas:</strong> Transformación de los datasets para unificar marcas temporales, gestionar valores faltantes (derivados de las distintas frecuencias de publicación de los bancos centrales) y calcular variaciones porcentuales interanuales.</li>
+                    <li><strong>Capa de Visualización Analítica:</strong> Presentación clara de las desviaciones estadísticas frente a medias históricas para identificar alertas tempranas de estrés en los mercados.</li>
                 </ul>
 
-                <h2>3. Desafíos Técnicos y Soluciones</h2>
+                <h2>3. Resolución de Desafíos Técnicos</h2>
                 
                 <div class="callout-box">
                     <h3>A. Sincronización de Periodicidades Mixtas</h3>
-                    <p>FRED aloja datos con frecuencias muy diversas: algunos indicadores se actualizan diariamente (como tipos de cambio o tipos de interés), otros semanalmente, y muchos mensualmente o trimestralmente.</p>
-                    <p><strong>Solución:</strong> Implementación de rutinas de interpolación y alineación de índices temporales en Pandas para evitar desajustes al cruzar métricas en los gráficos del dashboard.</p>
+                    <p>Los datos macroeconómicos presentan naturalezas heterogéneas: mientras que los tipos de interés o los flujos monetarios pueden registrarse diariamente o semanalmente, métricas clave como el PIB o el desempleo se publican de forma trimestral o mensual.</p>
+                    <p><strong>Solución:</strong> Implementación de algoritmos de interpolación y alineación de índices temporales en Pandas para evitar desajustes matemáticos al cruzar series en los modelos de riesgo.</p>
                 </div>
 
                 <div class="callout-box">
-                    <h3>B. Optimización de Solicitudes y Caché</h3>
-                    <p>Consultar múltiples series históricas pesadas en cada recarga de la interfaz ralentiza innecesariamente la aplicación y consume cuota de peticiones.</p>
-                    <p><strong>Solución:</strong> Capa intermedia de almacenamiento en caché local y temporal, asegurando que las series macroeconómicas se actualicen únicamente cuando se publican nuevos boletines oficiales.</p>
+                    <h3>B. Optimización de Solicitudes y Caché Local</h3>
+                    <p>Consultar de forma repetida series históricas extensas a través de la red degrada el rendimiento de la aplicación y agota rápidamente los límites de peticiones permitidos por la API.</p>
+                    <p><strong>Solución:</strong> Desarrollo de una capa de almacenamiento temporal en caché local que actualiza los registros únicamente cuando se emiten nuevos boletines oficiales por parte de la Reserva Federal.</p>
                 </div>
 
                 <div class="callout-box">
-                    <h3>C. Automatización y Alertas de Desviación</h3>
-                    <p>Vigilar manualmente cambios críticos en los indicadores macro resulta ineficiente.</p>
-                    <p><strong>Solución:</strong> Inclusión de reglas lógicas que evalúan las últimas lecturas frente a medias históricas o umbrales de riesgo, generando avisos automáticos ante movimientos anómalos.</p>
+                    <h3>C. Automatización de Alertas de Desviación Financiera</h3>
+                    <p>La monitorización manual de decenas de variables macroeconómicas es ineficiente ante cambios repentinos de tendencia.</p>
+                    <p><strong>Solución:</strong> Creación de reglas lógicas de evaluación basadas en desviaciones estándar respecto a medias móviles históricas, facilitando una rápida identificación de escenarios de riesgo sistémico.</p>
                 </div>
 
-                <h2>4. Estructura del Dashboard</h2>
-                <p>La herramienta se divide en bloques funcionales orientados al analista:</p>
+                <h2>4. Estructura Funcional del Dashboard</h2>
+                <p>La herramienta analítica se organiza en tres bloques principales orientados al usuario:</p>
                 <ol>
-                    <li><strong>Selector de Series FRED:</strong> Permite alternar y comparar de manera dinámica entre diferentes categorías de indicadores económicos.</li>
-                    <li><strong>Gráficos de Tendencia Histórica:</strong> Visualización limpia de la evolución a largo plazo con bandas de referencia estadística.</li>
-                    <li><strong>Panel de Alertas de Riesgo:</strong> Resumen ejecutivo con los últimos cambios porcentuales y desvíaciones de la norma histórica.</li>
+                    <li><strong>Selector Dinámico de Indicadores FRED:</strong> Permite filtrar, agrupar y contrastar métricas monetarias y de deuda soberana.</li>
+                    <li><strong>Gráficos de Tendencia Histórica:</strong> Visualización de series temporales normalizadas con bandas de dispersión estadística.</li>
+                    <li><strong>Panel de Alertas de Riesgo:</strong> Resumen ejecutivo con los últimos cambios porcentuales registrados en los indicadores clave de liquidez y tipos.</li>
                 </ol>
 
-                <h2>5. Conclusiones</h2>
-                <p>Integrar fuentes de datos institucionales como FRED en herramientas de desarrollo propio permite construir un sistema de análisis macroeconómico fiable, transparente y completamente adaptado a necesidades específicas de monitoreo de riesgo.</p>
+                <h2>5. Conclusiones y Código Fuente</h2>
+                <p>La integración de fuentes de datos institucionales como FRED en aplicaciones desarrolladas a medida permite construir sistemas de análisis macroeconómico independientes, transparentes y altamente adaptados al estudio del riesgo financiero.</p>
 
                 <div class="project-links">
-                    <a href="https://market-stress-monitor.streamlit.app/" class="btn btn-primary" target="_blank" rel="noopener">🚀 Probar Demo en Vivo</a>
-                    <a href="https://github.com/jvilla86/market-stress-monitor" class="btn btn-secondary" target="_blank" rel="noopener">📦 Ver Código en GitHub</a>
+                    <a href="https://tu-proyecto.streamlit.app" class="btn btn-primary" target="_blank" rel="noopener">🚀 Probar Aplicación Oficial</a>
+                    <a href="https://github.com/tu-usuario/proyecto" class="btn btn-secondary" target="_blank" rel="noopener">📦 Ver Código en GitHub</a>
                 </div>
             </section>
         </article>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
         <div class="container">
             <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
         </div>
