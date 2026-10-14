@@ -3,217 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio de Proyectos | Portafolio</title>
-    <!-- Fuente Inter de Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --accent-color: #58a6ff;
-            --accent-hover: #1f6feb;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 2rem 1rem;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1.5rem;
-        }
-
-        header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.5px;
-        }
-
-        header p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-color);
-        }
-
-        .card-content h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5px;
-        }
-
-        .card-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--border-color);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
-            color: #ffffff;
-        }
-
-        footer {
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>José Villa | Portafolio & Blog</title>
+    <meta name="description" content="Portafolio profesional y blog técnico de José Villa, estudiante de Antropología Social y Cultural, desarrollador de aplicaciones web.">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="blog-post-page">
 
-    <div class="container">
-        <header>
-            <h1>⚡ Laboratorio de Proyectos</h1>
-            <p>Ecosistema de aplicaciones, herramientas analíticas y desarrollos en Python y Web.</p>
-        </header>
+    <!-- Navegación Superior -->
+    <header class="site-header">
+        <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo" style="color: #38bdf8; text-decoration: none; font-weight: 600;">José Villa</a>
+            <nav>
+                <a href="blog/index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 6px 12px; border-radius: 4px; background-color: #1e293b;">Blog</a>
+            </nav>
+        </div>
+    </header>
 
-        <main class="grid">
-            <!-- Proyecto 1: Dashboard de Riesgo -->
-            <div class="card">
-                <div class="card-content">
-                    <h3>📊 Financial Risk Dashboard</h3>
-                    <p>Panel macroeconómico en tiempo real conectado a la API de la FRED soporte bilingüe (ES/EN).</p>
+    <main>
+        <!-- Tarjeta de Presentación (Hero) -->
+        <section class="container" style="max-width: 760px; margin: 50px auto; padding: 0 20px;">
+            <div style="background: #1e293b; padding: 35px; border-radius: 12px; border: 1px solid #334155; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+                
+                <!-- Foto de Perfil -->
+                <div style="flex-shrink: 0; margin: 0 auto;">
+                    <img src="img/jose.png" alt="José Villa" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #38bdf8;">
                 </div>
-                <a href="https://market-stress-monitor.streamlit.app/"  class="btn" target="_blank">Explorar App &rarr;</a>
-                <a href="https://github.com/jvilla86/market-stress-monitor" class="btn" target="_blank">Ver Repositorio &rarr;</a>
-            </div>
-
-            <!-- Proyecto 2: Espacio para otro proyecto (ej. Agregador de Noticias) -->
-            <div class="card">
-                <div class="card-content">
-                    <h3>🎵 Piano JS</h3>
-                    <p>Una aplicación web de teclado musical interactiva construida exclusivamente con HTML5, CSS3 y JavaScript Vanilla.</p>
+                
+                <!-- Información Personal -->
+                <div style="flex-grow: 1; text-align: left;">
+                    <span style="font-size: 0.85rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); padding: 4px 10px; border-radius: 4px; font-weight: 600;">Estudiante de Antropología Social y Cultural</span>
+                    <h1 style="font-size: 2rem; color: #ffffff; margin: 10px 0 5px 0;">José Villa</h1>
+                    <p style="color: #94a3b8; font-size: 1rem; margin: 0; line-height: 1.5;">
+                        Apasionado por la tecnología, el desarrollo web y la música. Construyendo herramientas en la intersección entre la informática y las ciencias sociales.
+                    </p>
                 </div>
-                <a href="https://jvilla86.github.io/piano/"  class="btn" target="_blank">Explorar App &rarr;</a>
-                <a href="https://github.com/jvilla86/piano" class="btn" target="_blank">Ver Repositorio &rarr;</a>
-            </div>
 
-            <!-- Proyecto 3: Espacio para otro proyecto (ej. Gestor de Incidentes o Reproductor) -->
-            <div class="card">
-                <div class="card-content">
-                    <h3>💽​ Multi-Playlist Pro</h3>
-                    <p>Aplicación web que facilita hacer listas de reproducción de música proveniente de Youtube, Spotify, Dropbox...</p>
-                </div>
-                <a href="https://jvilla86.github.io/reproductor/"  class="btn" target="_blank">Explorar App &rarr;</a>
-                <a href="https://github.com/jvilla86/reproductor" class="btn" target="_blank">Ver Repositorio &rarr;</a>
             </div>
-        </main>
-    </div>
-    <!-- Sección de Presentación / Hero -->
-    <section class="container" style="max-width: 760px; margin: 50px auto; padding: 0 20px;">
-        <div style="background: #1e293b; padding: 35px; border-radius: 12px; border: 1px solid #334155; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
-            
-            <!-- Foto de Perfil -->
-            <div style="flex-shrink: 0; margin: 0 auto;">
-                <img src="img/jose.png" alt="José Villa" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #38bdf8;">
+        </section>
+
+        <!-- Sección de Artículo Destacado -->
+        <section id="blog" class="container" style="max-width: 760px; margin: 40px auto; padding: 0 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #1e293b; padding-bottom: 10px;">
+                <h2 style="font-size: 1.6rem; color: #f8fafc; margin: 0;">Último Artículo</h2>
+                <a href="blog/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Ver todos →</a>
             </div>
             
-            <!-- Información Personal -->
-            <div style="flex-grow: 1; text-align: left;">
-                <span style="font-size: 0.85rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); padding: 4px 10px; border-radius: 4px; font-weight: 600;">Web/App Developer | Estudiante de Antropología Social y Cultural</span>
-                <h1 style="font-size: 2rem; color: #ffffff; margin: 10px 0 5px 0;">José Villa</h1>
-                <p style="color: #94a3b8; font-size: 1rem; margin: 0; line-height: 1.5;">
-                    Apasionado por la ciberseguridad, el desarrollo web y el análisis de datos. Construyendo proyectos en la intersección entre la informática y las ciencias sociales.
-                </p>
+            <div style="background: #1e293b; padding: 25px; border-radius: 8px; border: 1px solid #334155;">
+                <span style="font-size: 0.85rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); padding: 4px 8px; border-radius: 4px; font-weight: 600;">Data & Macroeconomics</span>
+                <h3 style="font-size: 1.35rem; color: #ffffff; margin: 12px 0 8px 0;">Extracción y Análisis Automatizado de Datos Macroescala con la API de FRED</h3>
+                <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.5;">Cómo estructurar un pipeline en Python para conectar con Federal Reserve Economic Data, procesar series temporales y desplegar un dashboard de riesgo de mercado.</p>
+                <a href="blog/dashboard-riesgo.html" style="color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Leer artículo completo →</a>
             </div>
-    
+        </section>
+    </main>
+
+    <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
         </div>
-    </section>
-  <!-- Sección de Blog / Artículo Destacado -->
-    <section id="blog" class="container" style="max-width: 760px; margin: 60px auto; padding: 0 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #1e293b; padding-bottom: 10px;">
-            <h2 style="font-size: 1.8rem; color: #f8fafc; margin: 0;">Último Artículo</h2>
-            <a href="blog/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Ver todos los artículos →</a>
-        </div>
-        
-        <div style="background: #1e293b; padding: 25px; border-radius: 8px; border: 1px solid #334155;">
-            <span style="font-size: 0.85rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); padding: 4px 8px; border-radius: 4px; font-weight: 600;">Fintech & Data</span>
-            <h3 style="font-size: 1.35rem; color: #ffffff; margin: 12px 0 8px 0;">Extracción y Análisis Automatizado de Datos Macroescala con la API de FRED</h3>
-            <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.5;">Cómo estructurar un pipeline en Python para conectar con Federal Reserve Economic Data, procesar series temporales y desplegar un dashboard de riesgo de mercado.</p>
-            <a href="blog/dashboard-riesgo.html" style="color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Leer artículo completo →</a>
-        </div>
-    </section>
-    <footer>
-        <p>Desarrollado con ❤️ en código abierto &bull; 📧 Contacto: <a href="mailto:hola@josevilla.dev">hola@josevilla.dev</a> 🐱 Me encuentras en <a href="https://github.com/jvilla86" target="_blank">GitHub</a></p>
     </footer>
 
 </body>
