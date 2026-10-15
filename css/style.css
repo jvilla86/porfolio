@@ -199,3 +199,35 @@
     color: #ffffff;
     background-color: #334155;
 }
+
+
+/* --- NAV DE CATEGORÍAS DEL INDEX DEL BLOG ---*/
+
+/* Estilo base para todos los botones de filtro */
+.filtros-blog .btn-filtro {
+    background-color: #f0f2f5;
+    color: #333;
+    border: 1px solid #d1d5db;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Efecto al pasar el ratón por encima */
+.filtros-blog .btn-filtro:hover {
+    background-color: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+/* Estilo destacado para el botón ACTIVO (el último pulsado) */
+.filtros-blog .btn-filtro.activo {
+    background-color: #2563eb; /* Un azul elegante (puedes cambiarlo a tu color corporativo) */
+    color: #ffffff;
+    border-color: #1d4ed8;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
