@@ -5,15 +5,15 @@
         <link>https://josevilla.dev/blog/index.html</link>
         <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
-        <lastBuildDate>Thu, 15 Oct 2026 02:50:06 +0200</lastBuildDate>
+        <lastBuildDate>Thu, 15 Oct 2026 02:53:04 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
         <item>
-            <title>Cómo convertir Markdown a HTML con Python (Tutorial Sencillo)</title>
+            <title>Cómo automatizar tu blog con Python y Markdown</title>
             <link>https://josevilla.dev/blog/md-to-html-post-tutorial.html</link>
             <guid>https://josevilla.dev/blog/md-to-html-post-tutorial.html</guid>
-            <pubDate>Thu, 15 Oct 2026 02:50:05 +0200</pubDate>
-            <description>Aprende a crear un script minimalista en Python para automatizar la conversión de tus notas en Markdown a páginas web estáticas de forma sencilla.</description>
+            <pubDate>Thu, 15 Oct 2026 02:53:03 +0200</pubDate>
+            <description>Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.</description>
         </item>
         <item>
             <title>Sostenibilidad, Ecología Práctica y Autosuficiencia: Cultivos Hidropónicos y Apps de Impacto</title>
