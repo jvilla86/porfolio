@@ -5,7 +5,7 @@
         <link>https://josevilla.dev/blog/index.html</link>
         <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
-        <lastBuildDate>Thu, 15 Oct 2026 22:08:32 +0200</lastBuildDate>
+        <lastBuildDate>Thu, 15 Oct 2026 22:21:28 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
         <item>
@@ -14,13 +14,6 @@
             <guid>https://josevilla.dev/blog/md-to-html-post-tutorial.html</guid>
             <pubDate>Thu, 15 Oct 2026 00:00:00 +0200</pubDate>
             <description>Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.</description>
-        </item>
-        <item>
-            <title>Reflexiones sobre antropología urbana</title>
-            <link>https://josevilla.dev/blog/articulo.html</link>
-            <guid>https://josevilla.dev/blog/articulo.html</guid>
-            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Un análisis sobre el espacio público y las dinámicas sociales.</description>
         </item>
         <item>
             <title>Sostenibilidad, Ecología Práctica y Autosuficiencia: Cultivos Hidropónicos y Apps de Impacto</title>
