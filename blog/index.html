@@ -23,6 +23,12 @@
         <header class="post-header" style="margin-bottom: 40px;">
             <h1 style="color: #ffffff; font-size: 2rem;">Blog & Artículos Técnicos</h1>
             <p class="lead" style="color: #94a3b8;">Notas sobre software, sociedad, tecnología y proyectos propios.</p>
+            <nav class="filtros-blog">
+                <button class="btn-filtro activo" onclick="filtrarArticulos('todos')">Todos</button>
+                <button class="btn-filtro" onclick="filtrarArticulos('python')">Python</button>
+                <button class="btn-filtro" onclick="filtrarArticulos('ciberseguridad')">Ciberseguridad</button>
+                <button class="btn-filtro" onclick="filtrarArticulos('antropologia')">Antropología</button>
+            </nav>
         </header>
         <!-- AQUÍ ES DONDE COLOCAS EL BLOQUE RSS -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
