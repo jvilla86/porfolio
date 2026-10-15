@@ -133,11 +133,7 @@
     </footer>
 <script>
 function filtrarArticulos(categoria) {
-    console.log("--- Filtrando por categoría:", categoria);
-    
     const tarjetas = document.querySelectorAll('.tarjeta-post');
-    console.log("Tarjetas encontradas:", tarjetas.length);
-    
     const botones = document.querySelectorAll('.btn-filtro');
 
     // Cambiar estado activo del botón
@@ -148,13 +144,15 @@ function filtrarArticulos(categoria) {
 
     // Filtrar tarjetas
     tarjetas.forEach(tarjeta => {
-        const catTarjeta = tarjeta.getAttribute('data-category');
-        console.log("- Tarjeta con categoría:", catTarjeta);
+        // Obtiene el string de categorías (ej: "python ciberseguridad") y lo convierte en array
+        const catTarjetaAttr = tarjeta.getAttribute('data-category') || '';
+        const categoriasArray = catTarjetaAttr.split(' ');
         
-        if (categoria === 'todos' || catTarjeta === categoria) {
-            tarjeta.style.display = ''; // Dejar que el CSS original controle la visualización (flex, block, etc.)
+        // Si se selecciona "todos", o el array incluye la categoría buscada, se muestra
+        if (categoria === 'todos' || categoriasArray.includes(categoria)) {
+            tarjeta.style.display = ''; 
         } else {
-            tarjeta.style.display = 'none'; // Ocultar
+            tarjeta.style.display = 'none'; 
         }
     });
 }
