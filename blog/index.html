@@ -132,32 +132,27 @@
         </div>
     </footer>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const botones = document.querySelectorAll('.btn-filtro');
+function filtrarArticulos(categoria) {
     const tarjetas = document.querySelectorAll('.tarjeta-post');
+    const botones = document.querySelectorAll('.btn-filtro');
 
-    botones.forEach(boton => {
-        boton.addEventListener('click', function() {
-            // 1. Quitar la clase 'activo' a todos los botones y ponérsela al pulsado
-            botones.forEach(b => b.classList.remove('activo'));
-            this.classList.add('activo');
+    // 1. Quitar la clase 'activo' a todos los botones y dársela al que se acaba de pulsar
+    botones.forEach(btn => btn.classList.remove('activo'));
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('activo');
+    }
 
-            // 2. Obtener la categoría seleccionada
-            const categoriaSeleccionada = this.getAttribute('data-categoria');
-
-            // 3. Mostrar u ocultar las tarjetas
-            tarjetas.forEach(tarjeta => {
-                const categoriaTarjeta = tarjeta.getAttribute('data-category');
-                
-                if (categoriaSeleccionada === 'todos' || categoriaTarjeta === categoriaSeleccionada) {
-                    tarjeta.style.display = 'block'; // O 'flex' / 'grid' según cómo maquetes tus tarjetas
-                } else {
-                    tarjeta.style.display = 'none';
-                }
-            });
-        });
+    // 2. Mostrar u ocultar las tarjetas según su categoría
+    tarjetas.forEach(tarjeta => {
+        const catTarjeta = tarjeta.getAttribute('data-category');
+        
+        if (categoria === 'todos' || catTarjeta === categoria) {
+            tarjeta.style.display = 'block'; // O 'flex' según tu diseño de tarjetas
+        } else {
+            tarjeta.style.display = 'none';
+        }
     });
-});
+}
 </script>
 </body>
 </html>
