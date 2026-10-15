@@ -9,10 +9,6 @@
     <meta name="description" content="Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.">
     <meta name="author" content="José Villa">
     
-    <!-- GEO y Localización -->
-    <meta name="geo.region" content="ES-AN">
-    <meta name="geo.placename" content="Motril">
-
     <!-- Open Graph (Redes Sociales y WhatsApp) -->
     <meta property="og:title" content="Cómo automatizar tu blog con Python y Markdown | José Villa">
     <meta property="og:description" content="Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.">
@@ -21,150 +17,32 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="José Villa">
 
-    <!-- Estilos CSS integrados y minimalistas -->
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #222222;
-            --text-muted: #555555;
-            --accent-color: #2563eb;
-            --border-color: #e5e7eb;
-            --code-bg: #f3f4f6;
-        }
+    <!-- GEO (Generative Engine Optimization) - Datos estructurados para IAs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Cómo automatizar tu blog con Python y Markdown",
+      "description": "Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.",
+      "author": {
+        "@type": "Person",
+        "name": "José Villa"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "José Villa",
+        "url": "https://josevilla.dev"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://josevilla.dev/blog/crear-blog-markdown-python.html"
+      },
+      "keywords": ["Python", "Markdown", "Automatización", "Generador de blogs", "Desarrollo web"]
+    }
+    </script>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        header {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
-        }
-
-        .volver-inicio {
-            text-decoration: none;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .volver-inicio:hover {
-            text-decoration: underline;
-        }
-
-        .meta-articulo {
-            margin: 0.5rem 0 1.5rem 0;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--code-bg);
-            color: var(--text-muted);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-right: 6px;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3rem;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-        }
-
-        ul, ol {
-            margin-bottom: 1.2rem;
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-        }
-
-        pre {
-            background-color: var(--code-bg);
-            padding: 1rem;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-color);
-        }
-
-        code {
-            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-            background-color: var(--code-bg);
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-
-        pre code {
-            background-color: transparent;
-            padding: 0;
-        }
-
-        /* Sección de donación Ko-fi */
-        .kofi-box {
-            margin-top: 3rem;
-            padding: 1.5rem;
-            background-color: #f9fafb;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .kofi-box p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .btn-kofi {
-            display: inline-block;
-            background-color: #29abe0;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn-kofi:hover {
-            background-color: #1e94c4;
-        }
-
-        footer {
-            margin-top: 3rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 1rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-    </style>
+    <!-- Hoja de estilos global del sitio -->
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -188,7 +66,7 @@
             <p>Escribir directamente en HTML es tedioso y propenso a errores de marcado. Markdown te permite concentrarte exclusivamente en el texto y las ideas, mientras que Python automatiza la parte repetitiva del desarrollo web.</p>
 
             <ul>
-                <strong>Simplicidad:</strong> Olfrécele formato a tus textos mediante símbolos limpios (<code>#</code>, <code>**</code>, <code>-</code>).
+                <li><strong>Simplicidad:</strong> Dale formato a tus textos mediante símbolos limpios (<code>#</code>, <code>**</code>, <code>-</code>).</li>
                 <li><strong>Velocidad:</strong> Compila decenas de artículos en cuestión de milisegundos.</li>
                 <li><strong>Control total:</strong> Tus archivos viven localmente y puedes alojarlos gratis en GitHub Pages.</li>
             </ul>
