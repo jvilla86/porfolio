@@ -134,3 +134,23 @@
 
 </body>
 </html>
+<script type="text/JavaScript">
+    function filtrarArticulos(categoria) {
+    const tarjetas = document.querySelectorAll('.tarjeta-post');
+    const botones = document.querySelectorAll('.btn-filtro');
+
+    // Cambiar estilo visual del botón activo
+    botones.forEach(btn => btn.classList.remove('activo'));
+    event.target.classList.add('activo');
+
+    // Mostrar u ocultar tarjetas según la categoría
+    tarjetas.forEach(tarjeta => {
+        const catTarjeta = tarjeta.getAttribute('data-category');
+        if (categoria === 'todos' || catTarjeta === categoria) {
+            tarjeta.style.display = 'block';
+        } else {
+            tarjeta.style.display = 'none';
+        }
+    });
+}
+</script>
