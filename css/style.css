@@ -231,3 +231,19 @@
     border-color: #1d4ed8;
     box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
 }
+
+
+/* para bloques de código */
+pre {
+    overflow-x: auto;          /* Añade barra de desplazamiento horizontal si el código es muy largo */
+    max-width: 100%;           /* Evita que se salga del contenedor principal */
+    white-space: pre;          /* Mantiene el formato de las líneas */
+    word-wrap: normal;         /* Evita saltos de línea forzados extraños dentro del código */
+    padding: 1rem;             /* Un poco de espacio interno para que no pegue con los bordes */
+    background-color: #f4f4f4; /* Opcional: un fondo suave para distinguir el bloque de código */
+    border-radius: 6px;        /* Opcional: bordes redondeados */
+}
+
+code {
+    word-break: break-all;     /* Para fragmentos de código inline largos si fuera necesario */
+}
