@@ -18,4 +18,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+    <url>
+    <loc>https://josevilla.dev/blog/reproductor-playlists.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+    <url>
+    <loc>https://josevilla.dev/blog/dataviewjs-obsidian.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
