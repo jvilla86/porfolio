@@ -1,274 +1,227 @@
-<!-- SEO Básico -->
-<title>Cómo convertir Markdown a HTML con Python (Tutorial Sencillo) | José Villa</title>
-<meta name="description" content="Aprende a crear un script minimalista en Python para automatizar la conversión de tus notas en Markdown a páginas web estáticas de forma sencilla.">
-<meta name="author" content="José Villa">
-
-<!-- Open Graph (Redes Sociales y WhatsApp) -->
-<meta property="og:title" content="Cómo convertir Markdown a HTML con Python (Tutorial Sencillo)">
-<meta property="og:description" content="Aprende a crear un script minimalista en Python para automatizar la conversión de tus notas en Markdown a páginas web estáticas de forma sencilla.">
-<meta property="og:image" content="https://josevilla.dev/assets/img/og-python-blog.png">
-<meta property="og:url" content="https://josevilla.dev/blog/crear-blog-markdown-python.html">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="José Villa">
-
-<!-- Estilos CSS integrados respetando la plantilla del blog -->
-<style>
-    :root {
-        --bg-color: #0f172a;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --accent-color: #38bdf8;
-        --border-color: #334155;
-        --code-bg: #1e293b;
-    }
-
-    body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.7;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2.5rem 1.5rem 1.5rem 1.5rem;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .back-link {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-size: 0.9rem;
-        display: inline-block;
-        margin-bottom: 1rem;
-    }
-
-    .back-link:hover {
-        text-decoration: underline;
-    }
-
-    .meta-articulo {
-        margin-bottom: 1rem;
-    }
-
-    .badge {
-        display: inline-block;
-        background-color: #1e3a8a;
-        color: #bfdbfe;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-right: 0.5rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    .meta-info {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-    }
-
-    main {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 1.5rem 4rem 1.5rem;
-    }
-
-    h1 {
-        font-size: 2.25rem;
-        color: #ffffff;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        letter-spacing: -0.025em;
-        line-height: 1.2;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        color: #ffffff;
-        margin-top: 2.5rem;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 0.5rem;
-    }
-
-    p {
-        margin-bottom: 1.25rem;
-    }
-
-    ul {
-        margin-bottom: 1.25rem;
-        padding-left: 1.5rem;
-    }
-
-    li {
-        margin-bottom: 0.5rem;
-    }
-
-    pre {
-        background-color: var(--code-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 1.25rem;
-        overflow-x: auto;
-        margin: 1.5rem 0;
-    }
-
-    code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 0.9rem;
-        color: var(--accent-color);
-    }
-
-    pre code {
-        color: #e2e8f0;
-    }
-
-    hr {
-        border: none;
-        border-top: 1px solid var(--border-color);
-        margin: 3rem 0;
-    }
-
-    /* Estilo para la sección de donación Ko-fi */
-    .kofi-box {
-        background-color: #1e293b;
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        margin-top: 3rem;
-    }
-
-    .kofi-box h3 {
-        margin-top: 0;
-        color: #ffffff;
-        font-size: 1.25rem;
-    }
-
-    .kofi-btn {
-        display: inline-block;
-        background-color: #29abe0;
-        color: #ffffff;
-        font-weight: 600;
-        padding: 0.75rem 1.5rem;
-        border-radius: 30px;
-        text-decoration: none;
-        margin-top: 1rem;
-        transition: background-color 0.2s ease;
-    }
-
-    .kofi-btn:hover {
-        background-color: #1d8abf;
-    }
-
-    footer {
-        text-align: center;
-        padding: 2rem;
-        color: var(--text-muted);
-        font-size: 0.85rem;
-        border-top: 1px solid var(--border-color);
-    }
-</style>
-
-<header>
-    <a href="/" class="back-link">&larr; Volver al inicio</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Categorías inyectadas automáticamente -->
-    <div class="meta-articulo" data-category="python automatizacion">
-        <span class="badge" data-category="python">Python</span>
-        <span class="badge" data-category="automatizacion">Automatización</span>
-    </div>
-
-    <div class="meta-info">📅 15 de Octubre, 2026</div>
+    <!-- SEO Básico -->
+    <title>Cómo automatizar tu blog con Python y Markdown | José Villa</title>
+    <meta name="description" content="Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.">
+    <meta name="author" content="José Villa">
     
-    <h1>Cómo convertir Markdown a HTML con Python (Tutorial Sencillo)</h1>
-</header>
+    <!-- GEO y Localización -->
+    <meta name="geo.region" content="ES-AN">
+    <meta name="geo.placename" content="Motril">
 
-<main>
-    <p>Gestionar un sitio web estático escribiendo código HTML puro desde cero puede volverse repetitivo y poco práctico. La solución ideal es separar el contenido de la estructura visual: redactar cómodamente en <strong>Markdown (<code>.md</code>)</strong> y dejar que un script de Python se encargue de compilarlo en páginas web listas para producción.</p>
-    
-    <p>En este artículo veremos cómo construir un script minimalista, fácil de entender y adaptar a cualquier proyecto web personal.</p>
+    <!-- Open Graph (Redes Sociales y WhatsApp) -->
+    <meta property="og:title" content="Cómo automatizar tu blog con Python y Markdown | José Villa">
+    <meta property="og:description" content="Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.">
+    <meta property="og:image" content="https://josevilla.dev/assets/img/og-python-blog.png">
+    <meta property="og:url" content="https://josevilla.dev/blog/crear-blog-markdown-python.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="José Villa">
 
-    <hr>
+    <!-- Estilos CSS integrados y minimalistas -->
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #222222;
+            --text-muted: #555555;
+            --accent-color: #2563eb;
+            --border-color: #e5e7eb;
+            --code-bg: #f3f4f6;
+        }
 
-    <h2>1. Instalación de dependencias</h2>
-    
-    <p>Para traducir sintaxis Markdown a etiquetas HTML de forma limpia, utilizaremos la biblioteca oficial <code>markdown</code>. Si trabajas en entornos como Linux (por ejemplo, Manjaro o Ubuntu), instálala rápidamente ejecutando el siguiente comando en tu terminal:</p>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
 
-    <pre><code>pip install markdown</code></pre>
+        header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
 
-    <hr>
+        .volver-inicio {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
 
-    <h2>2. El script de automatización esencial</h2>
-    
-    <p>Crea un archivo llamado <code>build.py</code> en la raíz de tu proyecto. Este script busca tus archivos Markdown, los procesa y los inyecta dentro de una plantilla HTML corporativa:</p>
+        .volver-inicio:hover {
+            text-decoration: underline;
+        }
 
-    <pre><code>import os
+        .meta-articulo {
+            margin: 0.5rem 0 1.5rem 0;
+        }
 
-import markdown
+        .badge {
+            display: inline-block;
+            background-color: var(--code-bg);
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 6px;
+        }
 
-CONTENT_DIR = "content"
-OUTPUT_DIR = "blog"
-TEMPLATE_FILE = os.path.join(OUTPUT_DIR, "plantilla-articulo.html")
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
 
-def compilar_blog():
-# 1. Leer la plantilla base
-if not os.path.exists(TEMPLATE_FILE):
-print("Error: No se encuentra la plantilla HTML.")
-return
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
 
-with open(TEMPLATE_FILE, "r", encoding="utf-8") as f:
-    plantilla = f.read()
+        p {
+            margin-bottom: 1.2rem;
+        }
 
-# 2. Buscar y procesar cada archivo Markdown
-for archivo in os.listdir(CONTENT_DIR):
-    if archivo.endswith(".md"):
-        ruta_md = os.path.join(CONTENT_DIR, archivo)
-        
-        with open(ruta_md, "r", encoding="utf-8") as f:
-            contenido_md = f.read()
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+        }
 
-        # Convertir Markdown a HTML estándar
-        html_generado = markdown.markdown(contenido_md, extensions=['fenced_code', 'tables'])
+        li {
+            margin-bottom: 0.4rem;
+        }
 
-        # Inyectar el resultado en la plantilla
-        articulo_final = plantilla.replace("&lt;!-- CONTENT --&gt;", html_generado)
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
 
-        # Guardar el resultado como un nuevo archivo HTML
-        nombre_salida = archivo.replace(".md", ".html")
-        ruta_salida = os.path.join(OUTPUT_DIR, nombre_salida)
+        code {
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            background-color: var(--code-bg);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
 
-        with open(ruta_salida, "w", encoding="utf-8") as f:
-            f.write(articulo_final)
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
 
-        print(f"¡Compilado con éxito: {archivo} -> {nombre_salida}!")
+        /* Sección de donación Ko-fi */
+        .kofi-box {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background-color: #f9fafb;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
 
-if name == "main":
-compilar_blog()
+        .kofi-box p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
 
-    <hr>
+        .btn-kofi {
+            display: inline-block;
+            background-color: #29abe0;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease;
+        }
 
-    <h2>3. ¿Por qué utilizar este enfoque?</h2>
+        .btn-kofi:hover {
+            background-color: #1e94c4;
+        }
 
-    <ul>
-        <li><strong>Simplicidad absoluta:</strong> El script tiene pocas líneas y no requiere configuraciones complejas de bases de datos.</li>
-        <li><strong>Portabilidad total:</strong> Al generar archivos <code>.html</code> estáticos, puedes alojarlos de forma gratuita y ultrarrápida en GitHub Pages o Cloudflare Pages.</li>
-        <li><strong>Control local:</strong> Tus textos viven en tu ordenador en formato de texto plano, facilitando las copias de seguridad con Git.</li>
-    </ul>
+        footer {
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
 
-    <!-- Sección de Donación Ko-fi -->
-    <div class="kofi-box">
-        <h3>¿Te ha resultado útil este artículo?</h3>
-        <p>Si quieres apoyar la creación de contenido técnico libre de publicidad, puedes invitarme a un café.</p>
-        <a href="https://ko-fi.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="kofi-btn">☕ Invítame a un café en Ko-fi</a>
-    </div>
-</main>
+    <header>
+        <a href="../index.html" class="volver-inicio">← Volver al inicio</a>
+    </header>
 
-<footer>
-    <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
-</footer>
+    <main>
+        <article>
+            <h1>Cómo automatizar tu blog con Python y Markdown</h1>
+            
+            <div class="meta-articulo" data-category="python automatizacion">
+                <span class="badge" data-category="python">Python</span>
+                <span class="badge" data-category="automatizacion">Automatización</span>
+            </div>
+
+            <!-- CONTENT -->
+            <p>Gestionar un blog estático no tiene por qué ser complicado. Una de las formas más eficientes y limpias de publicar contenido técnico o personal es escribir en archivos <strong>Markdown</strong> y utilizar un pequeño script en <strong>Python</strong> que se encargue de transformarlos en HTML y colocarlos en su plantilla correspondiente.</p>
+
+            <h2>¿Por qué usar Markdown y Python?</h2>
+            <p>Escribir directamente en HTML es tedioso y propenso a errores de marcado. Markdown te permite concentrarte exclusivamente en el texto y las ideas, mientras que Python automatiza la parte repetitiva del desarrollo web.</p>
+
+            <ul>
+                <strong>Simplicidad:</strong> Olfrécele formato a tus textos mediante símbolos limpios (<code>#</code>, <code>**</code>, <code>-</code>).
+                <li><strong>Velocidad:</strong> Compila decenas de artículos en cuestión de milisegundos.</li>
+                <li><strong>Control total:</strong> Tus archivos viven localmente y puedes alojarlos gratis en GitHub Pages.</li>
+            </ul>
+
+            <h2>Ejemplo básico de script compilador</h2>
+            <p>Con pocas líneas utilizando la librería <code>markdown</code> de Python, puedes leer un archivo de texto y volcarlo dentro de tu estructura HTML:</p>
+
+            <pre><code>import markdown
+
+# Leer el archivo de contenido Markdown
+with open("articulo.md", "r", encoding="utf-8") as f:
+    texto_md = f.read()
+
+# Convertir a HTML
+html_generado = markdown.markdown(texto_md)
+
+print(html_generado)
+</code></pre>
+
+            <p>De esta manera tan sencilla, puedes estructurar tu flujo de trabajo diario, mantener tu sitio web minimalista y olvidarte de gestores de contenidos pesados.</p>
+            <!-- /CONTENT -->
+
+            <!-- Caja de donación Ko-fi -->
+            <div class="kofi-box">
+                <p>¿Te ha gustado este tutorial o te ha servido de ayuda para tu propio blog?</p>
+                <a href="https://ko-fi.com/tuusuario" target="_blank" class="btn-kofi">☕ Invítame a un café en Ko-fi</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 José Villa. Construido con Python, Markdown y código abierto.</p>
+    </footer>
+
+</body>
+</html>
