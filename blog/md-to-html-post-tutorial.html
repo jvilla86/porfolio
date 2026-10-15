@@ -44,14 +44,14 @@
     <!-- Hoja de estilos global del sitio -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="blog-post-page">
 
-    <header>
+    <header class="site-header">
         <a href="../index.html" class="volver-inicio">← Volver al inicio</a>
     </header>
 
-    <main>
-        <article>
+     <main class="container post-container">
+        <article class="blog-post">
             <h1>Cómo automatizar tu blog con Python y Markdown</h1>
             
             <div class="meta-articulo" data-category="python automatizacion">
@@ -89,16 +89,17 @@ print(html_generado)
             <p>De esta manera tan sencilla, puedes estructurar tu flujo de trabajo diario, mantener tu sitio web minimalista y olvidarte de gestores de contenidos pesados.</p>
             <!-- /CONTENT -->
 
-            <!-- Caja de donación Ko-fi -->
-            <div class="kofi-box">
-                <p>¿Te ha gustado este tutorial o te ha servido de ayuda para tu propio blog?</p>
-                <a href="https://ko-fi.com/tuusuario" target="_blank" class="btn-kofi">☕ Invítame a un café en Ko-fi</a>
-            </div>
+ <!-- Bloque integrado de Ko-fi (ya incluido por defecto) -->
+                <div class="support-box" style="margin-top: 30px; padding: 20px; background: #1e293b; border-radius: 8px; border: 1px solid #334155; text-align: center;">
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 12px;">¿Te ha resultado útil este artículo? Considera apoyar el proyecto:</p>
+                    <a href="https://ko-fi.com/jvilla86" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem;">☕ Invítame a un café en Ko-fi</a>
+                </div>
+
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2026 José Villa. Construido con Python, Markdown y código abierto.</p>
+        <p>&copy; 2026 José Villa.</p>
     </footer>
 
 </body>
