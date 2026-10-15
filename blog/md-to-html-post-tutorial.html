@@ -57,13 +57,25 @@
 
      <main class="container post-container">
         <article class="blog-post">
-            <h1>Cómo automatizar tu blog con Python y Markdown</h1>
             
-            <div class="meta-articulo" data-category="python automatizacion">
-                <span class="badge" data-category="python">Python</span>
-                <span class="badge" data-category="automatizacion">Automatización</span>
-            </div>
+            <header class="post-header">
+                <div class="post-meta" style="margin-bottom: 8px;">
+                    <!-- CAMBIA ESTO: Categoría del post (ej. Python, Cybersecurity, Society...) -->
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Python</span>
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Markdown</span>
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">HTML</span>
 
+
+                    <!-- CAMBIA ESTO: Fecha visible -->
+                    <time datetime="2026-10-16" style="color: #64748b; font-size: 0.85rem; margin-left: 10px;">14 de Octubre, 2026</time>
+                </div>
+                <!-- CAMBIA ESTO: Título principal del post -->
+                <h1>Cómo transformar markdown a HTML</h1>
+                <!-- CAMBIA ESTO: Párrafo de introducción o entradilla -->
+                <p class="lead">Vamos a ver cómo con python podemos transformar un archivo .md a uno .html</p>
+            </header>
+
+            <hr class="divider">
             <!-- CONTENT -->
             <p>Gestionar un blog estático no tiene por qué ser complicado. Una de las formas más eficientes y limpias de publicar contenido técnico o personal es escribir en archivos <strong>Markdown</strong> y utilizar un pequeño script en <strong>Python</strong> que se encargue de transformarlos en HTML y colocarlos en su plantilla correspondiente.</p>
 
@@ -78,19 +90,19 @@
 
             <h2>Ejemplo básico de script compilador</h2>
             <p>Con pocas líneas utilizando la librería <code>markdown</code> de Python, puedes leer un archivo de texto y volcarlo dentro de tu estructura HTML:</p>
-
+            <div class="callout-box">
             <pre><code>import markdown
 
-# Leer el archivo de contenido Markdown
-with open("articulo.md", "r", encoding="utf-8") as f:
-    texto_md = f.read()
+                # Leer el archivo de contenido Markdown
+                with open("articulo.md", "r", encoding="utf-8") as f:
+                    texto_md = f.read()
 
-# Convertir a HTML
-html_generado = markdown.markdown(texto_md)
+                # Convertir a HTML
+                html_generado = markdown.markdown(texto_md)
 
-print(html_generado)
-</code></pre>
-
+                print(html_generado)
+                </code></pre>
+            </div>
             <p>De esta manera tan sencilla, puedes estructurar tu flujo de trabajo diario, mantener tu sitio web minimalista y olvidarte de gestores de contenidos pesados.</p>
             <!-- /CONTENT -->
 
@@ -103,8 +115,10 @@ print(html_generado)
         </article>
     </main>
 
-    <footer>
-        <p>&copy; 2026 José Villa.</p>
+    <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
 </body>
