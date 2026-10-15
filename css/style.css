@@ -240,7 +240,7 @@ pre {
     white-space: pre;          /* Mantiene el formato de las líneas */
     word-wrap: normal;         /* Evita saltos de línea forzados extraños dentro del código */
     padding: 1rem;             /* Un poco de espacio interno para que no pegue con los bordes */
-    background-color: #f4f4f4; /* Opcional: un fondo suave para distinguir el bloque de código */
+    /*background-color: #f4f4f4; /* Opcional: un fondo suave para distinguir el bloque de código */
     border-radius: 6px;        /* Opcional: bordes redondeados */
 }
 
