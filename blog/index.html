@@ -133,23 +133,28 @@
     </footer>
 <script>
 function filtrarArticulos(categoria) {
+    console.log("--- Filtrando por categoría:", categoria);
+    
     const tarjetas = document.querySelectorAll('.tarjeta-post');
+    console.log("Tarjetas encontradas:", tarjetas.length);
+    
     const botones = document.querySelectorAll('.btn-filtro');
 
-    // 1. Quitar la clase 'activo' a todos los botones y dársela al que se acaba de pulsar
+    // Cambiar estado activo del botón
     botones.forEach(btn => btn.classList.remove('activo'));
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('activo');
     }
 
-    // 2. Mostrar u ocultar las tarjetas según su categoría
+    // Filtrar tarjetas
     tarjetas.forEach(tarjeta => {
         const catTarjeta = tarjeta.getAttribute('data-category');
+        console.log("- Tarjeta con categoría:", catTarjeta);
         
         if (categoria === 'todos' || catTarjeta === categoria) {
-            tarjeta.style.display = 'block'; // O 'flex' según tu diseño de tarjetas
+            tarjeta.style.display = ''; // Dejar que el CSS original controle la visualización (flex, block, etc.)
         } else {
-            tarjeta.style.display = 'none';
+            tarjeta.style.display = 'none'; // Ocultar
         }
     });
 }
