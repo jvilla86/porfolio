@@ -5,9 +5,16 @@
         <link>https://josevilla.dev/blog/index.html</link>
         <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
-        <lastBuildDate>Fri, 16 Oct 2026 03:02:01 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 16 Oct 2026 21:41:01 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
+        <item>
+            <title>Cómo crear tus propios comandos en Linux</title>
+            <link>https://josevilla.dev/blog/crear-comandos-linux.html</link>
+            <guid>https://josevilla.dev/blog/crear-comandos-linux.html</guid>
+            <pubDate>Sat, 17 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Un ejemplo sencillo de cómo crear tus propios comandos para ejecutar en terminal de Linux.</description>
+        </item>
         <item>
             <title>Consejos esenciales de ciberseguridad para el día a día</title>
             <link>https://josevilla.dev/blog/consejos-ciberseguridad-usuarios.html</link>
