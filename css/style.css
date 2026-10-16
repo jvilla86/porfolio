@@ -206,6 +206,13 @@ a{
 }
 
 
+/* títulos tarjetas blog  */
+
+.tarjeta-post h2 a:hover{
+    color:rgba(56, 189, 248, 0.2);
+    text-decoration: underline;
+}
+
 /* --- NAV DE CATEGORÍAS DEL INDEX DEL BLOG ---*/
 
 /* Estilo base para todos los botones de filtro */
