@@ -5,9 +5,16 @@
         <link>https://josevilla.dev/blog/index.html</link>
         <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
-        <lastBuildDate>Fri, 16 Oct 2026 00:30:22 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 16 Oct 2026 00:40:44 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
+        <item>
+            <title>Consejos esenciales de ciberseguridad para el día a día</title>
+            <link>https://josevilla.dev/blog/consejos-ciberseguridad-usuarios.html</link>
+            <guid>https://josevilla.dev/blog/consejos-ciberseguridad-usuarios.html</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Descubre hábitos sencillos y prácticas fundamentales para proteger tu privacidad, contraseñas y datos personales en internet sin complicaciones técnicas.</description>
+        </item>
         <item>
             <title>¿Qué es Streamlit y por qué deberías usarlo para tus proyectos de Python?</title>
             <link>https://josevilla.dev/blog/que-es-streamlit.html</link>
