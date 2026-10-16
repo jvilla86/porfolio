@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo crear tus propios comandos en Linux | José Villa</title>
+    <link rel="icon" type="image/png" href="/img/jose.png">    
+    <meta name="description" content="Un ejemplo sencillo de cómo crear tus propios comandos para ejecutar en terminal de Linux.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cómo crear tus propios comandos en Linux">
+    <meta property="og:description" content="Un ejemplo sencillo de cómo crear tus propios comandos para ejecutar en terminal de Linux.">
+    <meta property="og:url" content="https://josevilla.dev/blog/crear-comandos-linux.html">
+
+    <!-- Marcador dinámico para el Schema.org / GEO -->
+    <!-- SCHEMA_JSON_LD -->
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="blog-post-page">
+
+    <header class="site-header">
+        <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html" class="logo" style="color: #38bdf8; text-decoration: none; font-weight: 600;">← Volver al Portafolio</a>
+            <nav>
+                <a href="index.html" >Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container post-container">
+        <article class="blog-post">
+ <body class="blog-post-page">
+            <header class="post-header">
+                <div class="post-meta" style="margin-bottom: 8px;">
+                    <span class="category" style="...">Python</span>
+                    <time datetime="2026-10-17" style="...">2026-10-17</time>
+                </div>
+                <!-- AQUÍ DEBE ESTAR EL MARCADOR H1 -->
+                <h1>Cómo crear tus propios comandos en Linux</h1>
+                <p class="lead">Un ejemplo sencillo de cómo crear tus propios comandos para ejecutar en terminal de Linux.</p>
+            </header>
+
+            <hr class="divider">
+
+           <section class="post-content">
+                <p>Todos sabemos que si hay algo que caracteriza a los usuarios de Linux, es el uso de la terminal. Es cierto que hoy en día, las distintas distribuciones de Linux han abrazado entornos gráficos para que la experiencia de usuario no diste mucho del uso de Windows o MacOS. Y perfectamente se puede contar con casi cualquier distribución de Linux en tu PC sin tocar la terminal.</p>
+<p>Sin embargo, profundizar en el uso de terminal se antoja casi imprescindible si deseas sacar todo el partido a tu ordenador. O muchas veces, se trata de buenas prácticas ya sea en cuanto a instalar o desinstalar aplicaciones o en la gestión de procesos y archivos de tu ordenador.</p>
+<p>Y en el uso de comandos, muchas veces ocurre que, o bien nos vemos obligados a realizar una combinación concreta de forma constante, o bien, tenemos que memorizar comandos que apenas recordamos y que tenemos que buscar cada vez en buscadores o en documentación. Pues para esto mismo está la opción de crear tus propios alias que representen distintas combinaciones de comandos pero llamándoles como a ti te parezca mejor.</p>
+<p>Al escribir el alias concreto en terminal y pulsar enter, se ejecutarán todos los comandos que hayas indicado que equivalgan a dicho alias.</p>
+<p>Por ejemplo, vamos a crear un alias que inicializa el entorno virtual concreto de un directorio donde tenemos scripts de python y, tras esto, ejecuta un script concreto. Así, con un solo comando, podremos ejecutar varias acciones.</p>
+<p>Para ello, tenemos que editar el archivo ~/.bashrc o ~/.zshrc dependiendo de cual sea tu terminal (bash o zsh). En mi caso, lo haré para zsh:</p>
+<pre class="codehilite"><code>echo &quot;alias miscript='cd ~/proyectos/ &amp; source venv/bin/activate &amp; python miprograma.py&quot; &gt;&gt; ~/.zshrc
+source ~./zshrc
+</code></pre>
+
+<p>Con el <code>echo</code>, insertamos directamente esa línea en el archivo  ~./zshrc.
+Esa línea ejecuta tres comandos, primero nos situamos en el directorio proyectos. Acto seguido, inicializamos el entorno virtual de python para ese directorio concreto. Y tras ello, ejecutamos miprograma.py.
+Luego, tenemos que reiniciar la terminal con el comando <code>source</code>.</p>
+<p>De esta forma, cuando tecleamos miscript, llevará a cabo esas tres funciones con un solo comando.</p>
+            <div class="support-box" style="margin-top: 30px; padding: 20px; background: #1e293b; border-radius: 8px; border: 1px solid #334155; text-align: center;">
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 12px;">¿Te ha resultado útil este artículo?</p>
+                    <a href="https://ko-fi.com/jvilla86" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem;">☕ Invítame a un café en Ko-fi</a>
+            </div>
+         </section>
+        </article>
+    </main>
+
+    <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
