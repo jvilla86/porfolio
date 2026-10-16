@@ -5,16 +5,9 @@
         <link>https://josevilla.dev/blog/index.html</link>
         <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
-        <lastBuildDate>Fri, 16 Oct 2026 00:06:00 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 16 Oct 2026 00:17:15 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
-        <item>
-            <title>¿Qué es Streamlit y por qué deberías usarlo para tus proyectos de Python?</title>
-            <link>https://josevilla.dev/blog/que-es-streamlit.html</link>
-            <guid>https://josevilla.dev/blog/que-es-streamlit.html</guid>
-            <pubDate>Fri, 16 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Descubre Streamlit, la librería de Python ideal para crear aplicaciones web interactivas y paneles de datos en minutos, sin necesidad de saber HTML, CSS o JavaScript.</description>
-        </item>
         <item>
             <title>Cómo automatizar tu blog con Python y Markdown</title>
             <link>https://josevilla.dev/blog/md-to-html-post-tutorial.html</link>
@@ -49,6 +42,13 @@
             <guid>https://josevilla.dev/blog/dashboard-riesgo.html</guid>
             <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
             <description>Guía técnica sobre cómo construir un pipeline en Python para extraer indicadores macroeconómicos de la Federal Reserve Economic Data (FRED) y analizar riesgo sistémico.</description>
+        </item>
+        <item>
+            <title>¿Qué es Streamlit y por qué deberías usarlo para tus proyectos de Python?</title>
+            <link>https://josevilla.dev/blog/que-es-streamlit.html</link>
+            <guid>https://josevilla.dev/blog/que-es-streamlit.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Descubre Streamlit, la librería de Python ideal para crear aplicaciones web interactivas y paneles de datos en minutos, sin necesidad de saber HTML, CSS o JavaScript.</description>
         </item>
         <item>
             <title>Reproductor Web Pro con Gestión de Playlists</title>
