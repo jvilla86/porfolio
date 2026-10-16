@@ -207,10 +207,11 @@ a{
 
 
 /* títulos tarjetas blog  */
-
-.tarjeta-post a:hover{
-    color:rgba(56, 189, 248, 0.2);
-    text-decoration: underline;
+.tarjeta-post h2{
+    font-size: 1.4rem; color: #ffffff; margin: 10px 0; border: none; padding: 0;
+}
+.tarjeta-post h2 a:hover{
+    color: #F4FFAD !important;
 }
 
 /* --- NAV DE CATEGORÍAS DEL INDEX DEL BLOG ---*/
