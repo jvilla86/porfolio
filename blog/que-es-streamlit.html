@@ -6,11 +6,12 @@
     <title>¿Qué es Streamlit y por qué deberías usarlo para tus proyectos de Python? | José Villa</title>
     <meta name="description" content="Descubre Streamlit, la librería de Python ideal para crear aplicaciones web interactivas y paneles de datos en minutos, sin necesidad de saber HTML, CSS o JavaScript.">
     
-    <!-- Open Graph por defecto -->
-    <meta property="og:title" content=">
-    <meta property="og:description" content=">
-    <meta property="og:image" content=">
-    <meta property="og:url" content=">
+    <!-- Open Graph -->
+    <meta property="og:title" content="¿Qué es Streamlit y por qué deberías usarlo para tus proyectos de Python?">
+    <meta property="og:description" content="Descubre Streamlit, la librería de Python ideal para crear aplicaciones web interactivas y paneles de datos en minutos, sin necesidad de saber HTML, CSS o JavaScript.">
+    <meta property="og:image" content="https://josevilla.dev/assets/img/default.png">
+    <meta property="og:url" content="https://josevilla.dev/blog/que-es-streamlit.html">
+    ...
 
     <!-- Marcador dinámico para el Schema.org / GEO -->
     <!-- SCHEMA_JSON_LD -->
@@ -33,12 +34,12 @@
             <header class="post-header">
                 <div class="post-meta" style="margin-bottom: 8px;">
                     <!-- CAMBIA ESTO: Categoría del post (ej. Python, Cybersecurity, Society...) -->
-                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Python</span>
+                    <span class="category" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.85rem;">Categoría</span>
                     <!-- CAMBIA ESTO: Fecha visible -->
-                    <time datetime="2026-10-16" style="color: #64748b; font-size: 0.85rem; margin-left: 10px;">2026-10-16</time>
+                    <time datetime="2026-10-14" style="color: #64748b; font-size: 0.85rem; margin-left: 10px;">14 de Octubre, 2026</time>
                 </div>
                 <!-- CAMBIA ESTO: Título principal del post -->
-                <h1>¿Qué es Streamlit y por qué deberías usarlo para tus proyectos de Python?</h1>
+                <h1>Título Principal del Artículo</h1>
                 <!-- CAMBIA ESTO: Párrafo de introducción o entradilla -->
                 <p class="lead">Párrafo de introducción destacado que enganche al lector y detalle brevemente qué se va a tratar en el artículo.</p>
             </header>
@@ -46,32 +47,38 @@
             <hr class="divider">
 
             <section class="post-content">
-<p>Si alguna vez has creado un script en Python que procesa datos, entrena un modelo de Machine Learning o realiza alguna tarea útil, seguro que te has hecho la misma pregunta: <strong>¿Cómo puedo mostrar esto al mundo de forma visual sin montar un servidor web complejo?</strong></p>
-<p>Tradicionalmente, la respuesta implicaba aprender HTML, CSS, JavaScript y configurar un framework pesado como Flask o Django. Afortunadamente, hoy en día existe una alternativa pensada por y para programadores de Python: <strong>Streamlit</strong>.</p>
-<h2>¿Qué es Streamlit?</h2>
-<p><strong>Streamlit</strong> es una librería de código abierto en Python que permite convertir scripts de Python en aplicaciones web interactivas en cuestión de minutos. Lo revolucionario de esta herramienta es que <strong>no necesitas escribir ni una sola línea de código frontend</strong>. </p>
-<p>Todo el diseño, la estructura y la lógica de la interfaz se construyen directamente desde Python utilizando funciones sencillas.</p>
-<h2>Principales ventajas</h2>
-<ul>
-<li><strong>Puro Python:</strong> Olvídate de lidiar con HTML, DOM o llamadas AJAX. Si sabes escribir código Python, sabes usar Streamlit.</li>
-<li><strong>Interactividad inmediata:</strong> Con un par de líneas puedes añadir componentes interactivos como deslizadores (<code>sliders</code>), botones, selectores de archivos o campos de texto que actualizan la aplicación al instante.</li>
-<li><strong>Recarga en vivo (Hot-reloading):</strong> A medida que modificas tu código y guardas el archivo, la interfaz del navegador se actualiza automáticamente para reflejar los cambios.</li>
-<li><strong>Despliegue gratuito:</strong> Con plataformas como Streamlit Community Cloud puedes tener tu aplicación online y accesible para cualquier persona en pocos clics.</li>
-</ul>
-<h2>¿Para qué se puede utilizar?</h2>
-<p>Las aplicaciones de Streamlit abarcan desde pequeños utilitarios hasta paneles de control profesionales. Aquí tienes algunos de los usos más comunes:</p>
-<ol>
-<li><strong>Paneles de datos (Dashboards):</strong> Ideal para cargar conjuntos de datos (con Pandas), filtrarlos en tiempo real y mostrarlos mediante gráficos interactivos (con Plotly, Matplotlib o Altair).</li>
-<li><strong>Demostraciones de Inteligencia Artificial:</strong> Si estás experimentando con modelos de lenguaje (LLMs), APIs de IA o visión por computador, Streamlit es el estándar de la industria para crear prototipos rápidos ("demos") donde los usuarios puedan probar el modelo en directo.</li>
-<li><strong>Herramientas de automatización internas:</strong> Pequeños scripts que tu equipo o tú mismo ejecutáis a diario, pero con una interfaz gráfica amigable que evita tener que usar la terminal constantemente.</li>
-<li><strong>MVP (Producto Mínimo Viable):</strong> Validar una idea de negocio o una funcionalidad antes de invertir semanas en desarrollar una aplicación web completa.</li>
-</ol>
-<h2>¿Tiene alguna limitación?</h2>
-<p>Como todo en tecnología, depende de para qué lo uses. Al ejecutarse todo el flujo de código de arriba a abajo cada vez que un usuario interactúa con un elemento, <strong>no está pensado para soportar millones de usuarios concurrentes</strong> como una red social masiva. </p>
-<p>Además, si utilizas los planes gratuitos de alojamiento en la nube, es muy probable que si la aplicación pasa un buen rato sin recibir visitas, entre en "modo siesta" (se duerma por inactividad) hasta que el próximo usuario vuelva a entrar y pulse el botón de despertar. </p>
-<h2>Conclusión</h2>
-<p>Streamlit es una de esas herramientas que enamora a los desarrolladores de Python porque elimina toda la fricción entre la lógica de programación y la interfaz de usuario. Si tienes un script rondando por tu ordenador y quieres darle una vuelta visual o compartirlo con el mundo, dedicarle un par de horas a Streamlit merece totalmente la pena.</p>
-</section>
+                <!-- ============================================== -->
+                <!-- ESCRIBE TU CONTENIDO AQUÍ ABAJO USANDO HTML BÁSICO -->
+                <!-- ============================================== -->
+
+                <h2>1. Primera Sección</h2>
+                <p>Escribe aquí tus párrafos de texto con total normalidad usando etiquetas como <code>&lt;p&gt;</code> para párrafos, <code>&lt;strong&gt;</code> para negritas, o listas con <code>&lt;ul&gt;</code> y <code>&lt;li&gt;</code>.</p>
+
+                <div class="callout-box">
+                    <h3>Nota o Destacado Técnico</h3>
+                    <p>Usa este bloque para resaltar comandos, definiciones, fragmentos de código o llamadas de atención importantes.</p>
+                </div>
+
+                <h2>2. Segunda Sección</h2>
+                <p>Continúa desarrollando tu análisis, tutorial o artículo de opinión técnica.</p>
+
+                <h2>3. Conclusiones</h2>
+                <p>Cierra el artículo resumiendo los puntos clave aportados.</p>
+
+                <!-- ============================================== -->
+                <!-- FIN DEL CONTENIDO PRINCIPAL -->
+                <!-- ============================================== -->
+
+                <!-- Bloque integrado de Ko-fi (ya incluido por defecto) -->
+                <div class="support-box" style="margin-top: 30px; padding: 20px; background: #1e293b; border-radius: 8px; border: 1px solid #334155; text-align: center;">
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 12px;">¿Te ha resultado útil este artículo? Considera apoyar el proyecto:</p>
+                    <a href="https://ko-fi.com/jvilla86" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem;">☕ Invítame a un café en Ko-fi</a>
+                </div>
+
+                <div class="project-links" style="margin-top: 20px;">
+                    <a href="https://github.com/tu-usuario" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">🐙 Ver Proyectos en GitHub</a>
+                </div>
+            </section>
         </article>
     </main>
 
