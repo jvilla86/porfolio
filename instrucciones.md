@@ -13,6 +13,10 @@ git add .
 ## 2. Guardar los cambios localmente con un mensaje descriptivo
 git commit -m "feat: descripción de lo que has añadido o modificado"
 
+## 3. sincronizar cambios en el repositorio antes de subir los míos
+
+git pull --rebase origin main
+
 ## 3. Subir los cambios a GitHub (desplegando automáticamente la web y el feed RSS)
 ´´´
 git push origin main
