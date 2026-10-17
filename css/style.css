@@ -259,4 +259,5 @@ pre {
 
 code {
     word-break: break-all;     /* Para fragmentos de código inline largos si fuera necesario */
+    font-size: 16px !important;
 }
