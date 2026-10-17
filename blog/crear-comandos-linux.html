@@ -67,9 +67,19 @@ Luego, tenemos que reiniciar la terminal con el comando <code>source</code>.</p>
     </main>
 
     <footer class="site-footer" style="text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem;">
-        <div class="container">
-            <p>&copy; 2026 José Villa. Todos los derechos reservados.</p>
-        </div>
+         <div class="container">
+        <p>&copy; <span id="year"></span> José Villa. Todos los derechos reservados.</p>
+
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+
+        <p style="margin-top: 8px;">
+            Este es un proyecto de <strong>código abierto</strong>. Puedes explorar el código fuente en 
+            <a href="https://github.com/jvilla86/porfolio" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none;">GitHub</a> 
+            bajo licencia MIT.
+        </p>
+    </div>
     </footer>
 
 </body>
