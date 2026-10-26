@@ -7,17 +7,17 @@
     <title>Reproductor Web Pro con Gestión de Playlists | José Villa</title>
     <meta name="description" content="Desarrollo de un reproductor web de audio y video con persistencia en localStorage e importación/exportación de listas en JSON.">
     <link rel="stylesheet" href="../css/style.css">
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
 </head>
 <body class="blog-post-page">
 
-    <header class="site-header">
-        <div class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
-            <a href="../index.html" class="logo" style="color: #38bdf8; text-decoration: none; font-weight: 600;">← Volver al Blog</a>
-            <nav>
-                <a href="index.html" >Blog</a>
-            </nav>
-        </div>
-    </header>
+    <div id="header-container"></div>
 
     <main class="container post-container">
         <article class="blog-post">
