@@ -5,14 +5,14 @@
         <link>https://josevilla.dev/blog/index.html</link>
         <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
-        <lastBuildDate>Fri, 20 Nov 2026 23:42:44 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 20 Nov 2026 23:44:28 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
         <item>
             <title>Artículo sin título</title>
             <link>https://josevilla.dev/blog/header.html</link>
             <guid>https://josevilla.dev/blog/header.html</guid>
-            <pubDate>Fri, 20 Nov 2026 23:42:39 +0200</pubDate>
+            <pubDate>Fri, 20 Nov 2026 23:44:23 +0200</pubDate>
             <description></description>
         </item>
         <item>
@@ -58,18 +58,11 @@
             <description>Análisis técnico sobre la prevención del tabnabbing mediante rel=noopener y la implementación de cabeceras de seguridad HSTS para forzar conexiones HTTPS seguras.</description>
         </item>
         <item>
-            <title>Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas como una Base de Datos</title>
-            <link>https://josevilla.dev/blog/dataviewjs-obsidian.html</link>
-            <guid>https://josevilla.dev/blog/dataviewjs-obsidian.html</guid>
+            <title>Medidor de riesgo de crisis en los mercados con Python</title>
+            <link>https://josevilla.dev/blog/dashboard-riesgo.html</link>
+            <guid>https://josevilla.dev/blog/dashboard-riesgo.html</guid>
             <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos, automatizar flujos de trabajo y transformar tu bóveda.</description>
-        </item>
-        <item>
-            <title>Reproductor Web Pro con Gestión de Playlists</title>
-            <link>https://josevilla.dev/blog/reproductor-playlists.html</link>
-            <guid>https://josevilla.dev/blog/reproductor-playlists.html</guid>
-            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Desarrollo de un reproductor web de audio y video con persistencia en localStorage e importación/exportación de listas en JSON.</description>
+            <description>Guía técnica sobre cómo construir un pipeline en Python para extraer indicadores macroeconómicos de la Federal Reserve Economic Data (FRED) y analizar riesgo sistémico.</description>
         </item>
         <item>
             <title>Sostenibilidad, Ecología Práctica y Autosuficiencia: Cultivos Hidropónicos y Apps de Impacto</title>
@@ -79,11 +72,18 @@
             <description>Guía práctica sobre ecología actual, autosuficiencia en el hogar, fundamentos de cultivos hidropónicos caseros y aplicaciones para reducir la huella ecológica.</description>
         </item>
         <item>
-            <title>Medidor de riesgo de crisis en los mercados con Python</title>
-            <link>https://josevilla.dev/blog/dashboard-riesgo.html</link>
-            <guid>https://josevilla.dev/blog/dashboard-riesgo.html</guid>
+            <title>Reproductor Web Pro con Gestión de Playlists</title>
+            <link>https://josevilla.dev/blog/reproductor-playlists.html</link>
+            <guid>https://josevilla.dev/blog/reproductor-playlists.html</guid>
             <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Guía técnica sobre cómo construir un pipeline en Python para extraer indicadores macroeconómicos de la Federal Reserve Economic Data (FRED) y analizar riesgo sistémico.</description>
+            <description>Desarrollo de un reproductor web de audio y video con persistencia en localStorage e importación/exportación de listas en JSON.</description>
+        </item>
+        <item>
+            <title>Introducción a DataviewJS en Obsidian: Automatiza y Consulta tus Notas como una Base de Datos</title>
+            <link>https://josevilla.dev/blog/dataviewjs-obsidian.html</link>
+            <guid>https://josevilla.dev/blog/dataviewjs-obsidian.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos, automatizar flujos de trabajo y transformar tu bóveda.</description>
         </item>
     </channel>
 </rss>
