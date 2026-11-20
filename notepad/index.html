@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notepad | josevilla.dev</title>
+  <style>
+    :root {
+      --bg-app: #f4f4f6;
+      --bg-paper: #ffffff;
+      --bg-toolbar: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --hover: #f3f4f6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-app: #111827;
+        --bg-paper: #1f2937;
+        --bg-toolbar: #1f2937;
+        --text-main: #f3f4f6;
+        --text-muted: #9ca3af;
+        --border: #374151;
+        --accent: #3b82f6;
+        --hover: #374151;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Barra de herramientas */
+    .toolbar {
+      background-color: var(--bg-toolbar);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      z-index: 10;
+    }
+
+    .toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding-right: 0.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .toolbar-group:last-of-type {
+      border-right: none;
+    }
+
+    button, select {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    button:hover, select:hover {
+      background-color: var(--hover);
+      border-color: var(--border);
+    }
+
+    button:active {
+      background-color: var(--border);
+    }
+
+    select {
+      border-color: var(--border);
+      outline: none;
+    }
+
+    select option {
+      background-color: var(--bg-paper);
+      color: var(--text-main);
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    .status {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 0.5rem;
+    }
+
+    /* Área de trabajo */
+    .workspace {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    #editor {
+      background-color: var(--bg-paper);
+      color: var(--text-main);
+      width: 100%;
+      max-width: 900px;
+      min-height: calc(100vh - 7rem);
+      padding: 2.5rem 3rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      outline: none;
+      line-height: 1.65;
+      font-size: 16px;
+      overflow-wrap: break-word;
+    }
+
+    #editor:empty::before {
+      content: "Empieza a escribir aquí...";
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Estilos de listas y sangrías dentro del editor */
+    #editor ul, #editor ol {
+      padding-left: 2rem;
+      margin: 0.5rem 0;
+    }
+
+    #editor blockquote {
+      margin-left: 2rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      #editor {
+        padding: 1.5rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+      .workspace {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="toolbar">
+    <!-- Fuente y Tamaño -->
+    <div class="toolbar-group">
+      <select id="fontName" title="Tipo de fuente" onchange="formatDoc('fontName', this.value)">
+        <option value="system-ui">Sans-Serif (Sistema)</option>
+        <option value="Georgia, serif">Serif (Georgia)</option>
+        <option value="'Courier New', monospace">Monospace</option>
+        <option value="Arial, sans-serif">Arial</option>
+      </select>
+
+      <select id="fontSize" title="Tamaño de texto" onchange="formatDoc('fontSize', this.value)">
+        <option value="2">Pequeño</option>
+        <option value="3" selected>Normal</option>
+        <option value="4">Mediano</option>
+        <option value="5">Grande</option>
+        <option value="6">Muy grande</option>
+      </select>
+    </div>
+
+    <!-- Estilos básicos -->
+    <div class="toolbar-group">
+      <button type="button" onclick="formatDoc('bold')" title="Negrita (Ctrl+B)"><b>B</b></button>
+      <button type="button" onclick="formatDoc('italic')" title="Cursiva (Ctrl+I)"><i>I</i></button>
+      <button type="button" onclick="formatDoc('underline')" title="Subrayado (Ctrl+U)"><u>U</u></button>
+      <button type="button" onclick="formatDoc('strikeThrough')" title="Tachado"><s>S</s></button>
+    </div>
+
+    <!-- Sangría y Listas -->
+    <div class="toolbar-group">
+      <button type="button" onclick="formatDoc('indent')" title="Aumentar sangría">→| Sangría</button>
+      <button type="button" onclick="formatDoc('outdent')" title="Reducir sangría">|← Quitar</button>
+      <button type="button" onclick="formatDoc('insertUnorderedList')" title="Lista con viñetas">• Lista</button>
+      <button type="button" onclick="formatDoc('insertOrderedList')" title="Lista numerada">1. Lista</button>
+    </div>
+
+    <!-- Limpiar formato -->
+    <div class="toolbar-group">
+      <button type="button" onclick="formatDoc('removeFormat')" title="Limpiar formato de selección">🧹 Limpiar</button>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Estado y Exportación -->
+    <span id="saveStatus" class="status">Guardado</span>
+    <div class="toolbar-group">
+      <button type="button" onclick="downloadTxt()" title="Descargar como archivo .txt">⬇ .TXT</button>
+      <button type="button" onclick="downloadHtml()" title="Descargar con formato .html">⬇ .HTML</button>
+      <button type="button" onclick="clearAll()" title="Borrar todo el documento">🗑️ Nuevo</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <div id="editor" contenteditable="true" spellcheck="true"></div>
+  </main>
+
+  <script>
+    const editor = document.getElementById('editor');
+    const saveStatus = document.getElementById('saveStatus');
+    const STORAGE_KEY = 'josevilla_notepad_content';
+    let saveTimeout;
+
+    // Cargar contenido guardado al iniciar
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        editor.innerHTML = saved;
+      }
+      editor.focus();
+    });
+
+    // Ejecutar comandos de formato
+    function formatDoc(cmd, value = null) {
+      document.execCommand(cmd, false, value);
+      editor.focus();
+      triggerSave();
+    }
+
+    // Permitir usar la tecla Tabulador para sangría en lugar de perder el foco
+    editor.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        if (e.shiftKey) {
+          formatDoc('outdent');
+        } else {
+          formatDoc('indent');
+        }
+      }
+    });
+
+    // Autoguardado con pequeño retardo (debounce)
+    editor.addEventListener('input', triggerSave);
+
+    function triggerSave() {
+      saveStatus.textContent = 'Guardando...';
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => {
+        localStorage.setItem(STORAGE_KEY, editor.innerHTML);
+        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        saveStatus.textContent = `Guardado (${now})`;
+      }, 400);
+    }
+
+    // Descargar texto plano
+    function downloadTxt() {
+      const text = editor.innerText;
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      triggerDownload(blob, 'nota.txt');
+    }
+
+    // Descargar HTML con formato
+    function downloadHtml() {
+      const htmlContent = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Nota</title></head><body style="font-family:sans-serif;max-width:800px;margin:2rem auto;line-height:1.6;">${editor.innerHTML}</body></html>`;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      triggerDownload(blob, 'nota.html');
+    }
+
+    function triggerDownload(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Limpiar lienzo completo
+    function clearAll() {
+      if (editor.innerText.trim() === '' || confirm('¿Seguro que quieres borrar toda la nota? Esta acción no se puede deshacer.')) {
+        editor.innerHTML = '';
+        localStorage.removeItem(STORAGE_KEY);
+        saveStatus.textContent = 'Lienzo limpio';
+        editor.focus();
+      }
+    }
+  </script>
+</body>
+</html>
