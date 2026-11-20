@@ -5,14 +5,14 @@
         <link>https://josevilla.dev/blog/index.html</link>
         <description>Artículos sobre programación, ciberseguridad, música, cultura y sociedad, filosofía, finanzas.</description>
         <language>es</language>
-        <lastBuildDate>Mon, 26 Oct 2026 03:05:19 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 20 Nov 2026 23:32:46 +0200</lastBuildDate>
         <atom:link href="https://josevilla.dev/feed.xml" rel="self" type="application/rss+xml"/>
 
         <item>
             <title>Artículo sin título</title>
             <link>https://josevilla.dev/blog/header.html</link>
             <guid>https://josevilla.dev/blog/header.html</guid>
-            <pubDate>Mon, 26 Oct 2026 03:05:18 +0200</pubDate>
+            <pubDate>Fri, 20 Nov 2026 23:32:40 +0200</pubDate>
             <description></description>
         </item>
         <item>
@@ -30,13 +30,6 @@
             <description>Un ejemplo sencillo de cómo crear tus propios comandos para ejecutar en terminal de Linux.</description>
         </item>
         <item>
-            <title>Consejos esenciales de ciberseguridad para el día a día</title>
-            <link>https://josevilla.dev/blog/consejos-ciberseguridad-usuarios.html</link>
-            <guid>https://josevilla.dev/blog/consejos-ciberseguridad-usuarios.html</guid>
-            <pubDate>Fri, 16 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Descubre hábitos sencillos y prácticas fundamentales para proteger tu privacidad, contraseñas y datos personales en internet sin complicaciones técnicas.</description>
-        </item>
-        <item>
             <title>¿Qué es Streamlit y por qué deberías usarlo para tus proyectos de Python?</title>
             <link>https://josevilla.dev/blog/que-es-streamlit.html</link>
             <guid>https://josevilla.dev/blog/que-es-streamlit.html</guid>
@@ -44,18 +37,18 @@
             <description>Descubre Streamlit, la librería de Python ideal para crear aplicaciones web interactivas y paneles de datos en minutos, sin necesidad de saber HTML, CSS o JavaScript.</description>
         </item>
         <item>
+            <title>Consejos esenciales de ciberseguridad para el día a día</title>
+            <link>https://josevilla.dev/blog/consejos-ciberseguridad-usuarios.html</link>
+            <guid>https://josevilla.dev/blog/consejos-ciberseguridad-usuarios.html</guid>
+            <pubDate>Fri, 16 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Descubre hábitos sencillos y prácticas fundamentales para proteger tu privacidad, contraseñas y datos personales en internet sin complicaciones técnicas.</description>
+        </item>
+        <item>
             <title>Cómo automatizar tu blog con Python y Markdown</title>
             <link>https://josevilla.dev/blog/md-to-html-post-tutorial.html</link>
             <guid>https://josevilla.dev/blog/md-to-html-post-tutorial.html</guid>
             <pubDate>Thu, 15 Oct 2026 00:00:00 +0200</pubDate>
             <description>Aprende a crear un generador de blogs estáticos sencillo usando Python y Markdown. Automatiza tus publicaciones de forma limpia y eficiente.</description>
-        </item>
-        <item>
-            <title>Sostenibilidad, Ecología Práctica y Autosuficiencia: Cultivos Hidropónicos y Apps de Impacto</title>
-            <link>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</link>
-            <guid>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</guid>
-            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Guía práctica sobre ecología actual, autosuficiencia en el hogar, fundamentos de cultivos hidropónicos caseros y aplicaciones para reducir la huella ecológica.</description>
         </item>
         <item>
             <title>Ciberseguridad Web Práctica: Protección con rel="noopener" y Cabeceras HTTPS</title>
@@ -72,18 +65,25 @@
             <description>Tutorial práctico de DataviewJS en Obsidian. Aprende a escribir scripts en JavaScript para consultar metadatos, automatizar flujos de trabajo y transformar tu bóveda.</description>
         </item>
         <item>
-            <title>Medidor de riesgo de crisis en los mercados con Python</title>
-            <link>https://josevilla.dev/blog/dashboard-riesgo.html</link>
-            <guid>https://josevilla.dev/blog/dashboard-riesgo.html</guid>
-            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
-            <description>Guía técnica sobre cómo construir un pipeline en Python para extraer indicadores macroeconómicos de la Federal Reserve Economic Data (FRED) y analizar riesgo sistémico.</description>
-        </item>
-        <item>
             <title>Reproductor Web Pro con Gestión de Playlists</title>
             <link>https://josevilla.dev/blog/reproductor-playlists.html</link>
             <guid>https://josevilla.dev/blog/reproductor-playlists.html</guid>
             <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
             <description>Desarrollo de un reproductor web de audio y video con persistencia en localStorage e importación/exportación de listas en JSON.</description>
+        </item>
+        <item>
+            <title>Sostenibilidad, Ecología Práctica y Autosuficiencia: Cultivos Hidropónicos y Apps de Impacto</title>
+            <link>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</link>
+            <guid>https://josevilla.dev/blog/sostenibilidad-autosuficiencia.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Guía práctica sobre ecología actual, autosuficiencia en el hogar, fundamentos de cultivos hidropónicos caseros y aplicaciones para reducir la huella ecológica.</description>
+        </item>
+        <item>
+            <title>Medidor de riesgo de crisis en los mercados con Python</title>
+            <link>https://josevilla.dev/blog/dashboard-riesgo.html</link>
+            <guid>https://josevilla.dev/blog/dashboard-riesgo.html</guid>
+            <pubDate>Wed, 14 Oct 2026 00:00:00 +0200</pubDate>
+            <description>Guía técnica sobre cómo construir un pipeline en Python para extraer indicadores macroeconómicos de la Federal Reserve Economic Data (FRED) y analizar riesgo sistémico.</description>
         </item>
     </channel>
 </rss>
